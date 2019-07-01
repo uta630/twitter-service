@@ -1,24 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+<div class="l-container c-container">
+    <div class="c-container__header">あなたのメールアドレスを確認してください。</div>
 
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
-
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }}, <a href="{{ route('verification.resend') }}">{{ __('click here to request another') }}</a>.
-                </div>
+    <div class="c-container__body">
+        @if (session('resent'))
+            <div class="u-alert u-alert--success" role="alert">
+                新しい確認リンクがあなたのメールアドレスに送信されました。
             </div>
-        </div>
+        @endif
+
+        続行する前に、確認リンクがあるかどうか電子メールを確認してください。
+        メールが届かなかった場合、 <a href="{{ route('verification.resend') }}">こちら</a>をクリック。
     </div>
 </div>
 @endsection

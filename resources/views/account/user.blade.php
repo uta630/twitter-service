@@ -1,23 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+<div class="l-container c-container">
+    <div class="c-container__header">Dashboard</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <p>アカウント情報を掲載するページ!!!</p>
-                </div>
+    <div class="c-container__body">
+        @if (session('status'))
+            <div class="u-alert u-alert--success" role="alert">
+                {{ session('status') }}
             </div>
-        </div>
+        @endif
+
+        <p>アカウント情報を掲載するページ!!!</p>
     </div>
 </div>
 @endsection
