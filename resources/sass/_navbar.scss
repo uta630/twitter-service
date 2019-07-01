@@ -1,0 +1,13 @@
+.l-navbar {}
+
+.c-navbar {
+    &__logo {}
+
+    &__items {}
+
+    &__item {
+        &--logout {}
+    }
+    
+    &__link {}
+}
