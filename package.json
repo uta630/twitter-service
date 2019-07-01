@@ -24,6 +24,6 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "normalize.css": "^8.0.1"
+        "css-reset-and-normalize": "^2.0.1"
     }
 }
