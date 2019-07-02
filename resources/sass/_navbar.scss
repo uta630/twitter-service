@@ -3,11 +3,19 @@
 .c-navbar {
     &__logo {}
 
-    &__items {}
+    &__items {
+        display: flex;
+    }
 
     &__item {
         &--logout {}
     }
     
-    &__link {}
+    &__link {
+        display: block;
+
+        padding: 0 12px;
+        
+        line-height: 50px;
+    }
 }

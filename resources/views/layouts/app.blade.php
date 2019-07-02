@@ -21,36 +21,41 @@
 </head>
 <body>
     <div id="app">
-        <nav class="l-navbar c-navbar">
-            <a class="c-navbar__logo" href="{{ url('/') }}">Kamitter</a>
+        <header class="l-header c-header">
+            <div class="c-header__row">
+                <a class="c-header__logo" href="{{ url('/') }}">Kamitter</a>
 
-            <ul class="c-navbar__items">
-                @guest
-                    <li class="c-navbar__item">
-                        <a class="c-navbar__link" href="{{ route('login') }}">ログイン</a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li class="c-navbar__item">
-                            <a class="c-navbar__link" href="{{ route('register') }}">ユーザー登録</a>
-                        </li>
-                    @endif
-                @else
-                    <li class="c-navbar__item">
-                        <div class="c-navbar__item--logout" aria-labelledby="navbarDropdown">
-                            <a class="c-navbar__link" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                ログアウト
-                            </a>
+                <nav class="l-navbar c-navbar">
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                @endguest
-            </ul>
-        </nav>
+                    <ul class="c-navbar__items">
+                        @guest
+                            <li class="c-navbar__item">
+                                <a class="c-navbar__link" href="{{ route('login') }}">ログイン</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="c-navbar__item">
+                                    <a class="c-navbar__link" href="{{ route('register') }}">ユーザー登録</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="c-navbar__item">
+                                <div class="c-navbar__item--logout" aria-labelledby="navbarDropdown">
+                                    <a class="c-navbar__link" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                        ログアウト
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
         <main class="l-main c-main">
             @yield('content')

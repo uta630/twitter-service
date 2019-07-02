@@ -7,23 +7,30 @@ $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 // Colors
-$blue: #3490dc;
+$black: #000;
+$white: #fff;
+$gray: #717171;
+$light-gray: #f7f7f7;
+$dark-gray: #333;
+
+$blue: #0099ff;
 $indigo: #6574cd;
 $purple: #9561e2;
 $pink: #f66d9b;
 $red: #e3342f;
 $orange: #f6993f;
 $yellow: #ffed4a;
-$green: #38c172;
+$green: #51c688;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
+$light-green: lighten($green, 10%);
+$light-blue: lighten($blue, 10%);
+$light-red: lighten($red, 10%);
+$dark-green: darken($green, 10%);
+$dark-blue: darken($blue, 10%);
+$dark-red: darken($red, 10%);
+
 /* size */
+$headerHeight: 50px;
 $commonWidth: percentage(1640 / 1920);
-
-/* color */
-$primary-color: #333;
-$secondary-color: #666;
-
-$black: #000;
-$white: #fff;

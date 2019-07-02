@@ -1,67 +1,64 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="l-container c-container">
-    <div class="c-container__header">ユーザー登録</div>
+<form method="POST" action="{{ route('register') }}" class="l-form c-form">
+    @csrf
+    <div class="c-form__heading">ユーザー登録</div>
 
-    <div class="c-container__body">
-        <form method="POST" action="{{ route('register') }}" class="l-form c-form">
-            @csrf
+    <div class="c-form__body">
+        <div class="c-form__field">
+            <label for="name" class="c-form__label">名前</label>
 
-            <div class="c-form__field">
-                <label for="name" class="c-form__label">名前</label>
+            <div class="c-form__input-wrap">
+                <input id="name" type="text" class="c-form__control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                <div class="c-form__input-wrap">
-                    <input id="name" type="text" class="c-form__control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                    @error('name')
-                        <span class="c-form__invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
+                @error('name')
+                    <span class="c-form__invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
+        </div>
 
-            <div class="c-form__field">
-                <label for="email" class="c-form__label">メールアドレス</label>
+        <div class="c-form__field">
+            <label for="email" class="c-form__label">メールアドレス</label>
 
-                <div class="c-form__input-wrap">
-                    <input id="email" type="email" class="c-form__control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+            <div class="c-form__input-wrap">
+                <input id="email" type="email" class="c-form__control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                    @error('email')
-                        <span class="c-form__invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
+                @error('email')
+                    <span class="c-form__invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
+        </div>
 
-            <div class="c-form__field">
-                <label for="password" class="c-form__label">パスワード</label>
+        <div class="c-form__field">
+            <label for="password" class="c-form__label">パスワード</label>
 
-                <div class="c-form__input-wrap">
-                    <input id="password" type="password" class="c-form__control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+            <div class="c-form__input-wrap">
+                <input id="password" type="password" class="c-form__control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                    @error('password')
-                        <span class="c-form__invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
+                @error('password')
+                    <span class="c-form__invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
+        </div>
 
-            <div class="c-form__field">
-                <label for="password-confirm" class="c-form__label">パスワード再入力</label>
+        <div class="c-form__field">
+            <label for="password-confirm" class="c-form__label">パスワード再入力</label>
 
-                <div class="c-form__input-wrap">
-                    <input id="password-confirm" type="password" class="c-form__control" name="password_confirmation" required autocomplete="new-password">
-                </div>
+            <div class="c-form__input-wrap">
+                <input id="password-confirm" type="password" class="c-form__control" name="password_confirmation" required autocomplete="new-password">
             </div>
+        </div>
 
-            <div class="c-form__field">
-                <button type="submit" class="u-btn u-btn--primary">登録</button>
-            </div>
-        </form>
+        <div class="c-form__field">
+            <button type="submit" class="u-btn u-btn--blue">登録</button>
+        </div>
     </div>
-</div>
+</form>
 @endsection
