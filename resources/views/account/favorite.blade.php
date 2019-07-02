@@ -11,7 +11,7 @@
             </div>
         @endif
 
-        <p>ログインしました!!!</p>
+        <p>いいね関連のページ!!!</p>
     </div>
 </div>
 @endsection

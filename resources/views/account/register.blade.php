@@ -11,7 +11,7 @@
             </div>
         @endif
 
-        <p>ログインしました!!!</p>
+        <p>アカウント登録ページ!!!</p>
     </div>
 </div>
 @endsection

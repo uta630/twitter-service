@@ -1,0 +1,155 @@
+.l-form {
+    margin: 120px auto;
+    max-width: 500px;
+    min-width: 320px;
+    width: 50%;
+}
+
+.c-form {
+    background: $white;
+
+    padding: 6%;
+
+    &__heading {
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+    
+        text-align: center;
+    
+        border-bottom: 1px solid #333;
+    }
+
+    &__body {}
+
+    &__field {
+        margin: 16px 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__label {
+        display: block;
+
+        margin-bottom: 8px;
+
+        font-weight: bold;
+
+        &--require::after {
+            content: '*';
+            color: #f00;
+        }
+    }
+
+    &__input {
+        &-wrap {}
+    }
+
+    &__control {
+        display: block;
+
+        width: 100%;
+        
+        padding: 3%;
+
+        line-height: 1.6;
+
+        box-sizing: border-box;
+        border-bottom: 1px dotted #ccc;
+
+        transition: border-bottom .4s;
+
+        &:focus {
+            outline: none;
+            border-bottom: 1px solid #7cb1ff;
+        }
+
+        &--text {
+            width: 100%;
+
+            padding: 12px;
+
+            font-size: 16px;
+
+            box-sizing: border-box;
+            border-bottom: 1px dotted #ccc;
+
+            &-short {
+                display: inline-block;
+        
+                width: 182px;
+            }
+        }
+    }
+
+    &__invalid-feedback {}
+
+    &__check {
+        &-input {
+            display: none;
+        }
+        
+        &-label {
+            position: relative;
+
+            padding-left: 24px;
+
+            &::before {
+                content: '';
+                display: block;
+
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                background: #FFF;
+
+                width: 16px;
+                height: 16px;
+
+                margin-right: 8px;
+
+                vertical-align: bottom;
+
+                border: 1px solid $gray;
+                border-radius: 2px;
+
+                transition: .2s;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+
+                position: absolute;
+                top: -1px;
+                bottom: 0;
+                left: 2px;
+
+                width: 12px;
+                height: 6px;
+
+                margin: auto;
+
+                transform: rotate(-45deg);
+            }
+        }
+        &-input:checked + &-label {
+            &::after {
+                border-left: 2px solid $green;
+                border-bottom: 2px solid $green;
+            }
+        }
+    }
+
+    &__link {
+        text-decoration: underline;
+        color: #0b0;
+        font-size: 14px;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

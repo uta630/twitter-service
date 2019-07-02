@@ -1,0 +1,29 @@
+p {
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+}
+
+img {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+input, button {
+    appearance: none;
+    border: none;
+}
+
+button{
+    background-color: transparent;
+    
+    padding: 0;
+
+    outline: none;
+
+    cursor: pointer;
+}

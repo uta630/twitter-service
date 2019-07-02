@@ -11,7 +11,7 @@
             </div>
         @endif
 
-        <p>ログインしました!!!</p>
+        <p>自動ツイート関連のページ!!!</p>
     </div>
 </div>
 @endsection

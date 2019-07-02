@@ -1,0 +1,21 @@
+.l-navbar {}
+
+.c-navbar {
+    &__logo {}
+
+    &__items {
+        display: flex;
+    }
+
+    &__item {
+        &--logout {}
+    }
+    
+    &__link {
+        display: block;
+
+        padding: 0 12px;
+        
+        line-height: 50px;
+    }
+}

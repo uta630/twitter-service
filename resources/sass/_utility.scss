@@ -1,0 +1,89 @@
+.u-btn {
+    &--primary {}
+    &--secondary {}
+    &--tertiary {}
+
+    &--wrap {
+        display: flex;
+
+        @include mq-down('md'){
+            flex-wrap: wrap;
+        }
+    }
+
+    display: block;
+    background: #6c8fb7;
+    
+    line-height: 34px;
+
+    margin: 0 auto;
+    padding: 0 24px;
+
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+
+    border-radius: 4px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+
+    transition: .2s;
+    transition-property: background, box-shadow;
+    cursor: pointer;
+
+    @include mq-down('md'){
+        box-sizing: border-box;
+    }
+    
+    &:hover {
+        background: #446080;
+
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+
+    &--min {
+        padding: 0 8px;
+
+        line-height: 24px;
+        font-size: 12px
+    }
+
+    &--max {
+        padding: 0 34px;
+
+        line-height: 42px;
+        font-size: 18px;
+    }
+    
+    &--red {
+        background: $red;
+
+        &:hover {
+            background: $dark-red;
+        }
+    }
+    &--blue {
+        background: $blue;
+
+        &:hover {
+            background: $dark-blue;
+        }
+    }
+    &--green {
+        background: $green;
+
+        &:hover {
+            background: $dark-green;
+        }
+    }
+    &--black {
+        background: $gray;
+
+        &:hover {
+            background: $dark-gray;
+        }
+    }
+}
+
+.u-alert {
+    &--success {}
+}
