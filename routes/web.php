@@ -14,7 +14,8 @@
 // default
 Route::get('/', function () { return view('welcome'); });
 
-// account
+// account : https://teratail.com/questions/106720#reply-163235
+// Router file : ~/vendor/laravel/framework/src/Illuminate/Routing/Router.php -> auth()
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
