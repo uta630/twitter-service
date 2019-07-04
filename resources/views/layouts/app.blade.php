@@ -23,8 +23,9 @@
     <div id="app">
         <header class="l-header c-header">
             <div class="c-header__row">
-                <a class="c-header__logo" href="{{ url('/') }}">Kamitter</a>
+                <a class="c-header__logo" href="{{ url('/') }}"><img src="/logo.png" alt="神ったー"></a>
 
+                <input type="checkbox" name="sp-humberger-nav" id="sp-humberger-nav">
                 <nav class="l-navbar c-navbar">
 
                     <ul class="c-navbar__items">
@@ -54,6 +55,7 @@
                         @endguest
                     </ul>
                 </nav>
+                <label for="sp-humberger-nav" class="l-navbar__humberger"></label>
             </div>
         </header>
 
