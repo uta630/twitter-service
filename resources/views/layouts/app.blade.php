@@ -30,11 +30,11 @@
                     <ul class="c-navbar__items">
                         @guest
                             <li class="c-navbar__item">
-                                <a class="c-navbar__link" href="{{ route('login') }}">ログイン</a>
+                                <a class="c-navbar__link" href="{{ route('login') }}"><i class="c-navbar__link--icon fas fa-lock"></i>ログイン</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="c-navbar__item">
-                                    <a class="c-navbar__link" href="{{ route('register') }}">ユーザー登録</a>
+                                    <a class="c-navbar__link" href="{{ route('register') }}"><i class="c-navbar__link--icon far fa-user-circle"></i>ユーザー登録</a>
                                 </li>
                             @endif
                         @else

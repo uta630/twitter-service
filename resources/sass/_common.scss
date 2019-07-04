@@ -19,13 +19,7 @@ body {
 
 .c-container {}
 
-.l-header {
-    max-width: 1280px;
-    width: 86%;
-    height: 50px;
-
-    margin: auto;
-}
+.l-header {}
 
 .c-header {
     height: $headerHeight;
@@ -33,9 +27,15 @@ body {
     &__row {
         display: flex;
         justify-content: space-between;
+
+        max-width: 1280px;
+        width: 86%;
+        height: $headerHeight;
+    
+        margin: auto;
     }
 
     &__logo {
-        line-height: 50px;
+        line-height: $headerHeight;
     }
 }
