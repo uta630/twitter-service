@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="l-container c-container">
+<main class="l-container l-container--center c-container">
     <div class="c-container__header">あなたのメールアドレスを確認してください。</div>
 
     <div class="c-container__body">
@@ -14,5 +14,5 @@
         続行する前に、確認リンクがあるかどうか電子メールを確認してください。
         メールが届かなかった場合、 <a href="{{ route('verification.resend') }}">こちら</a>をクリック。
     </div>
-</div>
+</main>
 @endsection

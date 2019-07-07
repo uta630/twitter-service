@@ -14,18 +14,36 @@ body {
 }
 
 .l-main {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-
-    min-height: calc(100vh - #{$headerHeight});
+    min-height: 100vh;
 }
 
-.l-container {}
+.l-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    
+    min-height: 100vh;
+    
+    padding-top: 64px;
+    
+    box-sizing: border-box;
+    
+    z-index: 0;
+    
+    &--center {
+        @include fx-c;
+    }
+}
 
 .c-container {}
 
-.l-header {}
+.l-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+}
 
 .c-header {
     height: $headerHeight;
