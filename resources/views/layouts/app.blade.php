@@ -23,18 +23,19 @@
     <div id="app">
         <header class="l-header c-header">
             <div class="c-header__row">
-                <a class="c-header__logo" href="{{ url('/') }}">Kamitter</a>
+                <a class="c-header__logo" href="{{ url('/') }}"><img src="/logo.png" alt="神ったー"></a>
 
+                <input type="checkbox" name="sp-humberger-nav" id="sp-humberger-nav">
                 <nav class="l-navbar c-navbar">
 
                     <ul class="c-navbar__items">
                         @guest
                             <li class="c-navbar__item">
-                                <a class="c-navbar__link" href="{{ route('login') }}">ログイン</a>
+                                <a class="c-navbar__link" href="{{ route('login') }}"><i class="c-navbar__link--icon fas fa-lock"></i>ログイン</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="c-navbar__item">
-                                    <a class="c-navbar__link" href="{{ route('register') }}">ユーザー登録</a>
+                                    <a class="c-navbar__link" href="{{ route('register') }}"><i class="c-navbar__link--icon far fa-user-circle"></i>ユーザー登録</a>
                                 </li>
                             @endif
                         @else
@@ -54,12 +55,11 @@
                         @endguest
                     </ul>
                 </nav>
+                <label for="sp-humberger-nav" class="l-navbar__humberger"></label>
             </div>
         </header>
 
-        <main class="l-main c-main">
-            @yield('content')
-        </main>
+        @yield('content')
     </div>
 </body>
 </html>

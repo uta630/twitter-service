@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="l-container c-container">
+<main class="l-container l-container--center c-container">
     <div class="c-container__header">Dashboard</div>
 
     <div class="c-container__body">
@@ -13,5 +13,5 @@
 
         <p>いいね関連のページ!!!</p>
     </div>
-</div>
+</main>
 @endsection
