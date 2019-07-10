@@ -2,16 +2,33 @@
 
 @section('content')
 <div class="l-container c-container">
-    <div class="c-container__header">Dashboard</div>
+    @if (session('status'))
+        <div class="u-alert u-alert--success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
 
-    <div class="c-container__body">
-        @if (session('status'))
-            <div class="u-alert u-alert--success" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif
+    <div class="l-settings c-settings c-container__settings">
+        <h2 class="c-settings__heading fas fa-user-plus">自動フォロー</h2>
 
-        <p>フォロー関連のページ!!!</p>
+        <div class="c-settings__field">
+            <h3 class="c-settings__title c-settings__account">アカウント名</h3>
+            <p class="c-settings__text">@exampleName</p>
+        </div>
+
+        <div class="c-settings__field">
+            <h3 class="c-settings__title c-settings__target">ターゲットアカウントリスト</h3>
+            <p>アカウントリストを表示...？</p>
+        </div>
+
+        <div class="c-settings__field">
+            <h3 class="c-settings__title c-settings__keyword">キーワード</h3>
+            <p>キーワード入力エリア</p>
+        </div>
+
+        <div class="c-settings__bottom">
+            <a href="{{ route('account.user') }}" class="u-btn u-btn--blue">登録</a>
+        </div>
     </div>
 </div>
 @endsection

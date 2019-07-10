@@ -1,8 +1,6 @@
 .l-navbar {
     @include mq-down('md') {
-        align-items: center;
-        display: flex;
-        justify-content: center;
+        @include fx-c;
 
         position: fixed;
         top: 0;
