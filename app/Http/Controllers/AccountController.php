@@ -12,95 +12,142 @@ class AccountController extends Controller
     }
     
     /*
-     * マイページ
+     * アカウント系ページ
      */
     public function index()
     {
         // サービスで使用するアカウントの一覧
         return view('account.index');
     }
-    
-    /*
-     * 使用するアカウントの登録
-     */
     public function register()
     {
         // サービスで使用するアカウントの登録ページ
         return view('account.register');
     }
-    
-    /*
-     * 使用するアカウントのマイページ
-     */
     public function user()
     {
         return view('account.user');
     }
     
     /*
-     * 自動フォロー
+     * ターゲットとなるアカウント
      */
-    public function follow()
+    public function target()
     {
-        // フォロー情報
-        return view('account.follow');
+        // ターゲット一覧
+        return view('target.index');
     }
-    public function followKeyword()
+    public function targetRegister()
     {
-        // フォローのキーワード設定
-        return view('account.followKeyword');
-    }
-    public function followSearch()
-    {
-        // キーワードとかを使ってフォローする人を検索
-        return view('account.followSearch');
-    }
-    public function followExecute()
-    {
-        // 自動フォローの実行
-        return view('account.followExecute');
-    }
-    public function unFollow()
-    {
-        // アンフォロー
-        return view('account.unFollow');
+        // ターゲット登録
+        return view('target.register');
     }
     
     /*
-     * 自動いいね
+     * [ 自動フォロー ]
+     * -  followStart   : 実行
+     * 1. followerPick  : ターゲットリストからアカウントをピックアップ
+     * 2. followerPick  : ピックアップしたアカウントのフォロワーを全取得
+     * 3. followerSort  : フォロワーを精査してリスト化
+     * 4. followExecute : 生成したリストを順にフォロー
+     * 5. 1に戻る
+     */
+    public function follow()
+    {
+        // フォロー情報の表示
+        return view('follow.index');
+    }
+    public function followStart()
+    {
+        // - 自動フォローの実行
+        return view('follow.start');
+    }
+    public function followerPick()
+    {
+        // 1. 2. アカウントのピックしてフォロワー取得
+        return view('follow.pick');
+    }
+    public function followerSort()
+    {
+        // 3. 取得したフォロワーを精査
+        return view('follow.sort');
+    }
+    public function followExecute()
+    {
+        // 4. 5. 自動フォローの実行
+        return view('follow.execute');
+    }
+    public function followKeywords()
+    {
+        // フォロー用キーワード一覧
+        return view('follow.keywords');
+    }
+    public function followKeywordsRegister()
+    {
+        // フォロー用キーワード登録
+        return view('follow.keywordsRegister');
+    }
+    
+    /*
+     * [ 自動いいね ]
+     * -  favoriteStart  : 実行
+     * 1. favoriteerSort : フォロワーを精査してリスト化
+     * 2. followExecute  : 生成したリストを順にフォロー
      */
     public function favorite()
     {
         // いいね情報
-        return view('account.favorite');
+        return view('favorite.index');
+    }
+    public function favoriteStart()
+    {
+        // - 自動いいねの実行
+        return view('favorite.start');
+    }
+    public function favoriteerSort()
+    {
+        // 1. いいねの精査
+        return view('favorite.sort');
     }
     public function favoriteExecute()
     {
-        // 自動いいねの実行
-        return view('account.favoriteExecute');
+        // 2. 自動いいねの実行
+        return view('favorite.execute');
     }
     public function favoriteKeyword()
     {
-        // いいねのキーワード設定
-        return view('account.favoriteKeyword');
+        // いいね用キーワード一覧
+        return view('favorite.keyword');
+    }
+    public function favoriteKeywordsRegister()
+    {
+        // いいね用キーワード登録
+        return view('favorite.keywordsRegister');
     }
     
     /*
-     * 自動ツイート
+     * [ 自動ツイート ]
+     * 1. tweetReservationEdit : 自動ツイートの編集
+     * 2. tweetExecute         : 自動ツイートの実行
      */
     public function tweet()
     {
         // ツイート履歴(予約を含む)
-        return view('account.tweet');
+        return view('tweet.index');
     }
     public function tweetReservation()
     {
-        // ツイート予約
-        return view('account.tweetReservation');
+        // ツイート予約の詳細
+        return view('tweet.reservation');
     }
     public function tweetReservationEdit()
     {
-        // ツイート予約の編集
-        return view('account.tweetReservationEdit');
+        // 1. ツイート予約の編集
+        return view('tweet.reservationEdit');
+    }
+    public function tweetExecute()
+    {
+        // 2. ツイート予約の実行
+        return view('tweet.execute');
     }
 }
