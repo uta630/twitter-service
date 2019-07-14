@@ -55,7 +55,7 @@ class AccountController extends Controller
     public function follow()
     {
         // フォロー情報の表示
-        return view('follow.index');
+        return view('account.follow');
     }
     public function followStart()
     {
@@ -97,7 +97,7 @@ class AccountController extends Controller
     public function favorite()
     {
         // いいね情報
-        return view('favorite.index');
+        return view('account.favorite');
     }
     public function favoriteStart()
     {
@@ -133,7 +133,7 @@ class AccountController extends Controller
     public function tweet()
     {
         // ツイート履歴(予約を含む)
-        return view('tweet.index');
+        return view('account.tweet');
     }
     public function tweetReservation()
     {
