@@ -1,0 +1,32 @@
+.l-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: $headerHeight;
+
+    z-index: 1;
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+
+        max-width: 1280px;
+        width: 86%;
+        height: $headerHeight;
+    
+        margin: auto;
+    }
+
+    &__logo {
+        flex-basis: 142px;
+
+        line-height: $headerHeight;
+            
+        transition: opacity .2s;
+
+        &:hover {
+            opacity: .6;
+        }
+    }
+}

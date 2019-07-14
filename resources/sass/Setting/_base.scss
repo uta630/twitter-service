@@ -1,3 +1,9 @@
+body {
+    background: $body-bg;
+
+    min-height: 100vh;
+}
+
 p {
     line-height: 1.6;
     font-size: 14px;

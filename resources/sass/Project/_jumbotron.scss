@@ -1,0 +1,43 @@
+.p-jumbotron {
+    @include fx-c;
+    flex-wrap: wrap;
+
+    color: #fff;
+
+    &__wrap {
+        @include fx-c;
+    }
+
+    &__inner {
+        text-align: center;
+    }
+
+    &__title {
+        margin-bottom: 32px;
+
+        line-height: 1.2;
+        font-size: 42px;
+        
+        @include mq-down('md') {
+            font-size: 32px;
+        }
+    }
+    
+    &__subtitle {
+        font-size: 26px;
+        
+        @include mq-down('md') {
+            font-size: 18px;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+
+        margin-top: 24px;
+    }
+
+    &__link {
+        margin: 0 12px;
+    }
+}

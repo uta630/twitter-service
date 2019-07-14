@@ -1,0 +1,66 @@
+.l-sidebar {
+    @include mq-up('md') {
+        margin-right: $SidebarMarginRight;
+    }
+
+    @include mq-down('md') {
+        margin-top: 24px;
+    }
+    
+    flex-basis: $SidebarFlexBasis;
+    
+    &__contents {
+        background: $white;
+
+        padding: 24px;
+
+        border-radius: 3px;
+    }
+
+    &__heading {
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+
+        border-bottom: 1px dotted $gray;
+    }
+
+    &__items {
+        margin-top: 12px;
+    }
+
+    &__item {
+        line-height: 1.6;
+
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+
+    &__link {
+        display: block;
+
+        font-size: 14px;
+
+        @include text-ellipsis;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__bottom {
+        display: block;
+
+        margin-top: 16px;
+
+        font-size: 12px;
+
+        &::before {
+            margin-right: 8px;
+        }
+
+        &:hover {
+            opacity: .6;
+        }
+    }
+}

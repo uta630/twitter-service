@@ -1,0 +1,40 @@
+$SidebarMarginRight: 32px;
+$SidebarFlexBasis: 240px;
+.l-primary {
+    flex-basis: calc(100% - #{$SidebarFlexBasis} - #{$SidebarMarginRight});
+    &__contents {
+        background: $white;
+
+        padding: 24px;
+
+        border-radius: 3px;
+
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+    }
+
+    &__heading {
+        display: block;
+        
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+
+        border-bottom: 1px dotted $gray;
+
+        &::before {
+            margin-right: 8px;
+
+            vertical-align: middle;
+            font-size: 16px;
+        }
+    }
+
+    &__body {
+        margin-bottom: 12px;
+    }
+
+    &__bottom {
+        @include fx-c;
+    }
+}

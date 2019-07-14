@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="l-container l-container--center c-container">
-    <form method="POST" action="{{ route('password.update') }}" class="l-form c-form">
+<main class="l-container l-container--center">
+    <form method="POST" action="{{ route('password.update') }}" class="c-form">
         @csrf
 
         <input type="hidden" name="token" value="{{ $token }}">
@@ -47,7 +47,7 @@
             </div>
 
             <div class="c-form__field">
-                <button type="submit" class="u-btn u-btn--primary">パスワードをリセットする</button>
+                <button type="submit" class="c-btn">パスワードをリセットする</button>
             </div>
         </div>
     </form>

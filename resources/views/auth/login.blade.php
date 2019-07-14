@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="l-container l-container--center c-container">
-    <form method="POST" action="{{ route('login') }}" class="l-form c-form">
+<main class="l-container l-container--center">
+    <form method="POST" action="{{ route('login') }}" class="c-form">
         @csrf
 
         <h2 class="c-form__heading">ログイン</h2>
@@ -47,7 +47,7 @@
             </div>
 
             <div class="c-form__field">
-                <button type="submit" class="u-btn u-btn--blue">ログイン</button>
+                <button type="submit" class="c-btn c-btn--blue">ログイン</button>
             </div>
 
             <div class="c-form__field">

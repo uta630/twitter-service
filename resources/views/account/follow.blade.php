@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="l-container c-container">
+<div class="l-container">
     @if (session('status'))
         <div class="u-alert u-alert--success" role="alert">
             {{ session('status') }}
         </div>
     @endif
 
-    <div class="l-settings c-settings c-container__settings">
+    <div class="c-settings__settings">
         <h2 class="c-settings__heading fas fa-user-plus">自動フォロー</h2>
 
         <div class="c-settings__field">
@@ -27,7 +27,7 @@
         </div>
 
         <div class="c-settings__bottom">
-            <a href="{{ route('account.user') }}" class="u-btn u-btn--blue">登録</a>
+            <a href="{{ route('account.user') }}" class="c-btn c-btn--blue">登録</a>
         </div>
     </div>
 </div>

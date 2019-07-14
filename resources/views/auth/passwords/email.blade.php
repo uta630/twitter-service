@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="l-container l-container--center c-container">
-    <form method="POST" action="{{ route('password.email') }}" class="l-form c-form">
+<main class="l-container l-container--center">
+    <form method="POST" action="{{ route('password.email') }}" class="c-form">
         @csrf
 
         <h2 class="c-form__heading">パスワードリセット</h2>
@@ -29,7 +29,7 @@
             </div>
 
             <div class="c-form__field">
-                    <button type="submit" class="u-btn u-btn--primary">送信</button>
+                    <button type="submit" class="c-btn">送信</button>
             </div>
         </div>
     </form>

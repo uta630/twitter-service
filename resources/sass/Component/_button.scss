@@ -1,8 +1,4 @@
-.u-btn {
-    &--primary {}
-    &--secondary {}
-    &--tertiary {}
-
+.c-btn {
     &--wrap {
         display: flex;
 
@@ -82,8 +78,4 @@
             background: $dark-gray;
         }
     }
-}
-
-.u-alert {
-    &--success {}
 }
