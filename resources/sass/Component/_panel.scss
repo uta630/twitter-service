@@ -1,0 +1,45 @@
+.c-panel {
+    background: $white;
+
+    padding: 3%;
+
+    text-align: center;
+
+    border: 1px solid $gray;
+    border-radius: 3px;
+
+    &--nodata {
+        background: none;
+
+        padding: 5%;
+
+        color: $white;
+        
+        border: 2px dotted #dadada;
+    }
+
+    &:hover {
+        border-color: $white;
+
+        cursor: pointer;
+    }
+
+    &__thumb {
+        width: 50%;
+
+        border-radius: 50%;
+    }
+
+    &__name {
+        display: block;
+
+        margin-top: 10%;
+
+        line-height: 1.4;
+        font-size: 16px;
+
+        @include mq-down('md') {
+            font-size: 14px;
+        }
+    }
+}

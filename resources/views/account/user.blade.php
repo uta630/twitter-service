@@ -8,7 +8,7 @@
         </div>
     @endif
 
-    <div class="l-primary__primary">
+    <div class="l-primary">
         <div class="l-primary__contents">
             <h2 class="l-primary__heading fas fa-user-plus">自動フォロー</h2>
             
@@ -51,9 +51,10 @@
             <h3 class="l-sidebar__heading">登録アカウント一覧</h3>
 
             <ul class="l-sidebar__items">
-                <li class="l-sidebar__item"><a href="{{ route('account.index') }}" class="l-sidebar__link">@uta_mr_kiss</a></li>
-                <li class="l-sidebar__item"><a href="{{ route('account.index') }}" class="l-sidebar__link">@____uta_____</a></li>
-                <li class="l-sidebar__item"><a href="{{ route('account.index') }}" class="l-sidebar__link">@analfxxkers2010</a></li>
+                <li class="l-sidebar__item"><a href="{{ route('account.index') }}" class="l-sidebar__link">@TwitterJP</a></li>
+                <li class="l-sidebar__item"><a href="{{ route('account.index') }}" class="l-sidebar__link">@MomentsJapan</a></li>
+                <li class="l-sidebar__item"><a href="{{ route('account.index') }}" class="l-sidebar__link">@TwitterMediaJP</a></li>
+                <li class="l-sidebar__item"><a href="{{ route('account.index') }}" class="l-sidebar__link">@twitcasting_jp</a></li>
             </ul>
 
             <a href="/" class="l-sidebar__bottom fas fa-plus">アカウント追加</a>

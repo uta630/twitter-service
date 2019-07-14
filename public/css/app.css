@@ -6534,15 +6534,6 @@ button {
   cursor: pointer;
 }
 
-.fa,
-.fas,
-.far,
-.fal,
-.fab {
-  vertical-align: text-bottom;
-  font-size: 18px;
-}
-
 /* ==========================================================================
    Layout
    ========================================================================== */
@@ -7073,6 +7064,44 @@ button {
   background: #333;
 }
 
+.c-panel {
+  background: #fff;
+  padding: 3%;
+  text-align: center;
+  border: 1px solid #717171;
+  border-radius: 3px;
+}
+
+.c-panel--nodata {
+  background: none;
+  padding: 5%;
+  color: #fff;
+  border: 2px dotted #dadada;
+}
+
+.c-panel:hover {
+  border-color: #fff;
+  cursor: pointer;
+}
+
+.c-panel__thumb {
+  width: 50%;
+  border-radius: 50%;
+}
+
+.c-panel__name {
+  display: block;
+  margin-top: 10%;
+  line-height: 1.4;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 767px) {
+  .c-panel__name {
+    font-size: 14px;
+  }
+}
+
 /* ==========================================================================
    Project
    ========================================================================== */
@@ -7131,6 +7160,24 @@ button {
 
 .p-jumbotron__link {
   margin: 0 12px;
+}
+
+.p-account__items {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1%;
+}
+
+.p-account__item {
+  flex-basis: 31.3333333333%;
+  margin: 1%;
+}
+
+@media screen and (max-width: 767px) {
+  .p-account__item {
+    flex-basis: 48%;
+  }
 }
 
 /* ==========================================================================
