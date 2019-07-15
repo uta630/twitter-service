@@ -17,13 +17,23 @@ Route::get('/', function () { return view('welcome'); });
 // account : https://teratail.com/questions/106720#reply-163235
 // Router file : ~/vendor/laravel/framework/src/Illuminate/Routing/Router.php -> auth()
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
-// contents
-Route::get('/account', 'AccountController@index')->name('account.index');
-Route::get('/account/register', 'AccountController@register')->name('account.register');
-Route::get('/account/1', 'AccountController@user')->name('account.user');
+// Account
+Route::get('/account', 'Account\AccountController@index')->name('account.index'); // top page
+Route::get('/account/register', 'Account\AccountController@register')->name('account.register');
+Route::get('/account/1', 'Account\AccountController@user')->name('account.user');
 
-Route::get('/account/1/follow', 'AccountController@follow')->name('account.follow');
-Route::get('/account/1/favorite', 'AccountController@favorite')->name('account.favorite');
-Route::get('/account/1/tweet', 'AccountController@tweet')->name('account.tweet');
+// Target
+Route::get('/account/1/target', 'Account\TargetController@index')->name('target.index');
+Route::get('/account/1/target/register', 'Account\TargetController@targetRegister')->name('target.register');
+
+// Follow
+Route::get('/account/1/follow', 'Contents\FollowController@index')->name('follow.index');
+Route::get('/account/1/follow/keywords', 'Contents\FollowController@keywords')->name('follow.keywords');
+
+// Favorite
+Route::get('/account/1/favorite', 'Contents\FavoriteController@index')->name('favorite.index');
+Route::get('/account/1/favorite/keywords', 'Contents\FavoriteController@keywords')->name('favorite.keywords');
+
+// Tweet
+Route::get('/account/1/tweet', 'Contents\TweetController@index')->name('tweet.index');

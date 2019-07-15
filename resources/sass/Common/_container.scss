@@ -1,0 +1,29 @@
+.l-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    
+    max-width: $max-width;
+    width: 86%;
+
+    margin: 0 auto;
+    padding: 86px 0;
+    
+    box-sizing: border-box;
+    
+    z-index: 0;
+
+    &--fit {
+        min-height: 100vh;
+    }
+
+    @include mq-up('md') {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+    
+    &--center {
+        @include fx-c;
+    }
+}

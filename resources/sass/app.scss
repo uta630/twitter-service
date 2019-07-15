@@ -1,3 +1,6 @@
+/* ==========================================================================
+   Foundation
+   ========================================================================== */
 // normalize
 @import './node_modules/css-reset-and-normalize/scss/reset-and-normalize';
 
@@ -10,13 +13,35 @@
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 
-// Variables
-@import '_mixin';
-@import '_variables';
-@import '_base';
-@import '_utility';
+// Setting
+@import 'Setting/_mixin';
+@import 'Setting/_variables';
+@import 'Setting/_base';
 
-@import '_common';
-@import '_navbar';
-@import '_account';
-@import '_form';
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+@import 'Common/_header';
+@import 'Common/_container';
+@import 'Common/_primary';
+@import 'Common/_sidebar';
+
+/* ==========================================================================
+   Object
+   ========================================================================== */
+@import 'Component/_navbar';
+@import 'Component/_form';
+@import 'Component/_settings';
+@import 'Component/_button';
+@import 'Component/_panel';
+
+/* ==========================================================================
+   Project
+   ========================================================================== */
+@import 'Project/_jumbotron';
+@import 'Project/_account';
+
+/* ==========================================================================
+   Utility
+   ========================================================================== */
+@import 'Utility/_utility';

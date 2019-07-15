@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="l-container l-container--center c-container">
-    <div class="c-container__header">あなたのメールアドレスを確認してください。</div>
+<main class="l-container l-container--center">
+    <div class="l-container__header">あなたのメールアドレスを確認してください。</div>
 
-    <div class="c-container__body">
+    <div class="l-container__body">
         @if (session('resent'))
             <div class="u-alert u-alert--success" role="alert">
                 新しい確認リンクがあなたのメールアドレスに送信されました。

@@ -1,8 +1,6 @@
-.l-navbar {
+.c-navbar {
     @include mq-down('md') {
-        align-items: center;
-        display: flex;
-        justify-content: center;
+        @include fx-c;
 
         position: fixed;
         top: 0;
@@ -61,29 +59,6 @@
             }
         }
     }
-}
-
-#sp-humberger-nav {
-    &:checked + .l-navbar {
-        transform: translateY(0%);
-    }
-    
-    &:checked + .l-navbar + .l-navbar__humberger {
-        top: 26px;
-
-        height: 18px;
-
-        border-width: 3px 0;
-
-        &::before {
-    
-            background: transparent;
-        }
-    }
-}
-
-.c-navbar {
-    &__logo {}
 
     &__items {
         @include mq-up('md') {
@@ -93,8 +68,6 @@
 
     &__item {
         text-align: center;
-        
-        &--logout {}
     }
     
     &__link {
@@ -131,11 +104,25 @@
         }
 
         &:hover {
-            // opacity: .6;
-
             &::before {
                 height: 3px;
             }
+        }
+    }
+
+    &__checkbox:checked + & {
+        transform: translateY(0%);
+    }
+        
+    &__checkbox:checked + & + &__humberger {
+        top: 26px;
+
+        height: 18px;
+
+        border-width: 3px 0;
+
+        &::before {
+            background: transparent;
         }
     }
 }

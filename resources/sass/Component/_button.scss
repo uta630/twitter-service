@@ -1,8 +1,4 @@
-.u-btn {
-    &--primary {}
-    &--secondary {}
-    &--tertiary {}
-
+.c-btn {
     &--wrap {
         display: flex;
 
@@ -26,7 +22,7 @@
     border-radius: 4px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
 
-    transition: .2s;
+    transition: .1s;
     transition-property: background, box-shadow;
     cursor: pointer;
 
@@ -82,8 +78,4 @@
             background: $dark-gray;
         }
     }
-}
-
-.u-alert {
-    &--success {}
 }

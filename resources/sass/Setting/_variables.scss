@@ -1,5 +1,5 @@
 // Body
-$body-bg: #f8fafc;
+$body-bg: #3B5998;
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
@@ -25,5 +25,6 @@ $dark-blue: darken($blue, 10%);
 $dark-red: darken($red, 10%);
 
 /* size */
+$max-width: 960px;
 $headerHeight: 64px;
 $commonWidth: percentage(1640 / 1920);

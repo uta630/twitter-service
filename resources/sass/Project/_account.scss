@@ -1,0 +1,21 @@
+$pc-column: 3;
+$sp-column: 2;
+.p-account {
+    &__heading {}
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+
+        margin: -1%;
+    }
+
+    &__item {
+        flex-basis: percentage((100 - ($pc-column*2))/100 / $pc-column);
+
+        margin: 1%;
+
+        @include mq-down('md') {
+            flex-basis: percentage((100 - ($sp-column*2))/100 / $sp-column);
+        }
+    }
+}

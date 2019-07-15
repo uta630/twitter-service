@@ -1,3 +1,9 @@
+body {
+    background: $body-bg;
+
+    min-height: 100vh;
+}
+
 p {
     line-height: 1.6;
     font-size: 14px;
@@ -26,9 +32,4 @@ button{
     outline: none;
 
     cursor: pointer;
-}
-
-.fa, .fas, .far, .fal, .fab {
-    vertical-align: text-bottom;
-    font-size: 18px;
 }

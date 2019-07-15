@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="l-container l-container--center c-container">
-    <form method="POST" action="{{ route('register') }}" class="l-form c-form">
+<main class="l-container l-container--center">
+    <form method="POST" action="{{ route('register') }}" class="c-form">
         @csrf
         <div class="c-form__heading">ユーザー登録</div>
 
@@ -58,7 +58,7 @@
             </div>
 
             <div class="c-form__field">
-                <button type="submit" class="u-btn u-btn--blue">登録</button>
+                <button type="submit" class="c-btn c-btn--blue">登録</button>
             </div>
         </div>
     </form>
