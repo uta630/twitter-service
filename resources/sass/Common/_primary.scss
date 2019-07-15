@@ -1,5 +1,6 @@
 $SidebarMarginRight: 32px;
 $SidebarFlexBasis: 240px;
+
 .l-primary {
     flex-basis: calc(100% - #{$SidebarFlexBasis} - #{$SidebarMarginRight});
     &__contents {

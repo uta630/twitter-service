@@ -17,7 +17,8 @@
             </div>
 
             <div class="l-primary__bottom">
-                <a href="{{ route('account.follow') }}" class="c-btn c-btn--green">編集</a>
+                <a href="{{ route('follow.keywords') }}" class="c-btn c-btn--blue">キーワード登録</a>
+                <a href="{{ route('follow.index') }}" class="c-btn c-btn--green">編集</a>
             </div>
         </div>
         
@@ -29,7 +30,8 @@
             </div>
 
             <div class="l-primary__bottom">
-                <a href="{{ route('account.favorite') }}" class="c-btn c-btn--green">編集</a>
+                <a href="{{ route('favorite.keywords') }}" class="c-btn c-btn--blue">キーワード登録</a>
+                <a href="{{ route('favorite.index') }}" class="c-btn c-btn--green">編集</a>
             </div>
         </div>
 
@@ -41,23 +43,23 @@
             </div>
 
             <div class="l-primary__bottom">
-                <a href="{{ route('account.tweet') }}" class="c-btn c-btn--green">編集</a>
+                <a href="{{ route('tweet.index') }}" class="c-btn c-btn--green">編集</a>
             </div>
         </div>
     </div>
 
     <div class="l-sidebar">
         <div class="l-sidebar__contents">
-            <h3 class="l-sidebar__heading">登録アカウント一覧</h3>
+            <h3 class="l-sidebar__heading"><a href="{{ route('account.index') }}">アカウント</a></h3>
 
             <ul class="l-sidebar__items">
-                <li class="l-sidebar__item"><a href="{{ route('account.index') }}" class="l-sidebar__link">@TwitterJP</a></li>
-                <li class="l-sidebar__item"><a href="{{ route('account.index') }}" class="l-sidebar__link">@MomentsJapan</a></li>
-                <li class="l-sidebar__item"><a href="{{ route('account.index') }}" class="l-sidebar__link">@TwitterMediaJP</a></li>
-                <li class="l-sidebar__item"><a href="{{ route('account.index') }}" class="l-sidebar__link">@twitcasting_jp</a></li>
+                <li class="l-sidebar__item"><a href="{{ route('account.user') }}" class="l-sidebar__link">@TwitterJP</a></li>
+                <li class="l-sidebar__item"><a href="{{ route('account.user') }}" class="l-sidebar__link">@MomentsJapan</a></li>
+                <li class="l-sidebar__item"><a href="{{ route('account.user') }}" class="l-sidebar__link">@TwitterMediaJP</a></li>
+                <li class="l-sidebar__item"><a href="{{ route('account.user') }}" class="l-sidebar__link">@twitcasting_jp</a></li>
             </ul>
 
-            <a href="/" class="l-sidebar__bottom fas fa-plus">アカウント追加</a>
+            <a href="{{ route('account.register') }}" class="l-sidebar__bottom fas fa-plus">アカウント追加</a>
         </div>
     </div>
 </div>

@@ -8,8 +8,8 @@
         </div>
     @endif
 
-    <div class="c-settings__settings">
-        <h2 class="c-settings__heading fas fa-heart">自動いいね</h2>
+    <div class="c-settings">
+        <h2 class="c-settings__heading fas fa-user-plus">自動フォロー</h2>
 
         <div class="c-settings__field">
             <h3 class="c-settings__title c-settings__account">アカウント名</h3>
@@ -17,8 +17,13 @@
         </div>
 
         <div class="c-settings__field">
-            <h3 class="c-settings__title c-settings__favorite">自動いいねキーワード登録</h3>
-            <p>ターゲットとなるキーワードの登録</p>
+            <h3 class="c-settings__title c-settings__target">ターゲットアカウントリスト</h3>
+            <p>アカウントリストを表示...？</p>
+        </div>
+
+        <div class="c-settings__field">
+            <h3 class="c-settings__title c-settings__keyword">キーワード</h3>
+            <p>キーワード入力エリア</p>
         </div>
 
         <div class="c-settings__bottom">

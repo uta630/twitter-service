@@ -8,8 +8,8 @@
         </div>
     @endif
 
-    <div class="c-settings__settings">
-        <h2 class="c-settings__heading fas fa-comment-dots">自動ツイート</h2>
+    <div class="c-settings">
+        <h2 class="c-settings__heading fas fa-heart">使用アカウント</h2>
 
         <div class="c-settings__field">
             <h3 class="c-settings__title c-settings__account">アカウント名</h3>
@@ -17,13 +17,8 @@
         </div>
 
         <div class="c-settings__field">
-            <h3 class="c-settings__title c-settings__favorite">ツイート</h3>
-            <p>自動ツイートの内容</p>
-        </div>
-
-        <div class="c-settings__field">
-            <h3 class="c-settings__title c-settings__favorite">予約日付指定</h3>
-            <p>予約日付指定</p>
+            <h3 class="c-settings__title c-settings__favorite">自動いいねキーワード登録</h3>
+            <p>ターゲットとなるキーワードの登録</p>
         </div>
 
         <div class="c-settings__bottom">
