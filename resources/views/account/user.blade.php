@@ -9,6 +9,8 @@
     @endif
 
     <div class="l-primary">
+        <h1 class="l-primary__title">@TwitterJP</h1>
+
         <div class="l-primary__contents">
             <h2 class="l-primary__heading fas fa-user-plus">自動フォロー</h2>
             
@@ -64,10 +66,10 @@
         </div>
         
         <div class="l-sidebar__contents">
-            <h3 class="l-sidebar__heading"><a href="{{ route('account.index') }}">アカウント</a></h3>
+            <h3 class="l-sidebar__heading"><a href="{{ route('account.index') }}">ご利用アカウントID</a></h3>
 
             <ul class="l-sidebar__items">
-                <li class="l-sidebar__item"><a href="{{ route('account.user') }}" class="l-sidebar__link">@TwitterJP</a></li>
+                <li class="l-sidebar__item"><a href="{{ route('account.user') }}" class="l-sidebar__link is-active">@TwitterJP</a></li>
                 <li class="l-sidebar__item"><a href="{{ route('account.user') }}" class="l-sidebar__link">@MomentsJapan</a></li>
                 <li class="l-sidebar__item"><a href="{{ route('account.user') }}" class="l-sidebar__link">@TwitterMediaJP</a></li>
                 <li class="l-sidebar__item"><a href="{{ route('account.user') }}" class="l-sidebar__link">@twitcasting_jp</a></li>

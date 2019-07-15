@@ -6611,6 +6611,15 @@ button {
   flex-basis: calc(100% - 240px - 32px);
 }
 
+.l-primary__title {
+  margin-bottom: 24px;
+  padding-left: 12px;
+  line-height: 2;
+  color: #fff;
+  font-size: 24px;
+  border-left: 4px solid #fff;
+}
+
 .l-primary__contents {
   background: #fff;
   padding: 24px;
@@ -6647,13 +6656,10 @@ button {
           justify-content: center;
 }
 
-.l-sidebar {
-  flex-basis: 240px;
-}
-
 @media screen and (min-width: 768px) {
   .l-sidebar {
     margin-right: 32px;
+    width: 240px;
   }
 }
 
@@ -6666,6 +6672,10 @@ button {
 .l-sidebar__contents {
   background: #fff;
   padding: 24px;
+}
+
+.l-sidebar__contents:not(:last-child) {
+  padding-bottom: 12px;
 }
 
 .l-sidebar__heading {
@@ -6698,6 +6708,10 @@ button {
 
 .l-sidebar__link:hover {
   text-decoration: underline;
+}
+
+.l-sidebar__link.is-active {
+  font-weight: bold;
 }
 
 .l-sidebar__bottom {
@@ -6929,7 +6943,7 @@ button {
   content: "";
   display: block;
   position: absolute;
-  top: -1px;
+  top: -2px;
   bottom: 0;
   left: 2px;
   width: 12px;
@@ -7080,7 +7094,7 @@ button {
 
 .c-panel--nodata {
   background: none;
-  padding: 5%;
+  padding: 6%;
   color: #fff;
   border: 2px dotted #dadada;
 }

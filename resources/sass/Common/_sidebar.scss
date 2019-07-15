@@ -1,18 +1,22 @@
 .l-sidebar {
     @include mq-up('md') {
         margin-right: $SidebarMarginRight;
+    
+        width: $SidebarFlexBasis;
     }
 
     @include mq-down('md') {
         margin-top: 24px;
     }
     
-    flex-basis: $SidebarFlexBasis;
-    
     &__contents {
         background: $white;
 
         padding: 24px;
+
+        &:not(:last-child) {
+            padding-bottom: 12px;
+        }
     }
 
     &__heading {
@@ -46,6 +50,10 @@
 
         &:hover {
             text-decoration: underline;
+        }
+
+        &.is-active {
+            font-weight: bold;
         }
     }
 
