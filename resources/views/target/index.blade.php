@@ -9,16 +9,15 @@
     @endif
 
     <div class="c-settings">
-        <h2 class="c-settings__heading fas fa-heart">使用アカウント</h2>
+        <h2 class="c-settings__heading fas fa-heart">ターゲットアカウント</h2>
 
         <div class="c-settings__field">
-            <h3 class="c-settings__title c-settings__account">アカウント名</h3>
+            <h3 class="c-settings__title c-settings__account">ターゲット一覧</h3>
             <p class="c-settings__text">@exampleName</p>
-        </div>
-
-        <div class="c-settings__field">
-            <h3 class="c-settings__title c-settings__favorite">自動いいねキーワード登録</h3>
-            <p>ターゲットとなるキーワードの登録</p>
+            <p class="c-settings__text">@exampleName</p>
+            <p class="c-settings__text">@exampleName</p>
+            <p class="c-settings__text">@exampleName</p>
+            <p class="c-settings__text">@exampleName</p>
         </div>
 
         <div class="c-settings__bottom">

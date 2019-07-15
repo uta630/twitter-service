@@ -6575,11 +6575,14 @@ button {
   left: 0;
   max-width: 1280px;
   width: 86%;
-  min-height: 100vh;
   margin: 0 auto;
   padding: 86px 0;
   box-sizing: border-box;
   z-index: 0;
+}
+
+.l-container--fit {
+  min-height: 100vh;
 }
 
 @media screen and (min-width: 768px) {
@@ -6610,7 +6613,6 @@ button {
 .l-primary__contents {
   background: #fff;
   padding: 24px;
-  border-radius: 3px;
 }
 
 .l-primary__contents:not(:last-child) {
@@ -6662,12 +6664,12 @@ button {
 .l-sidebar__contents {
   background: #fff;
   padding: 24px;
-  border-radius: 3px;
 }
 
 .l-sidebar__heading {
   margin-bottom: 12px;
   padding-bottom: 12px;
+  font-weight: bold;
   border-bottom: 1px dotted #717171;
 }
 

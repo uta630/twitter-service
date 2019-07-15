@@ -24,8 +24,8 @@ Route::get('/account/register', 'Account\AccountController@register')->name('acc
 Route::get('/account/1', 'Account\AccountController@user')->name('account.user');
 
 // Target
-Route::get('/account/1/target', 'Contents\TargetController@index')->name('target.index');
-Route::get('/account/1/target/register', 'Contents\TargetController@targetRegister')->name('target.register');
+Route::get('/account/1/target', 'Account\TargetController@index')->name('target.index');
+Route::get('/account/1/target/register', 'Account\TargetController@targetRegister')->name('target.register');
 
 // Follow
 Route::get('/account/1/follow', 'Contents\FollowController@index')->name('follow.index');

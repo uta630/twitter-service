@@ -17,8 +17,8 @@
             </div>
 
             <div class="l-primary__bottom">
-                <a href="{{ route('follow.keywords') }}" class="c-btn c-btn--blue">キーワード登録</a>
                 <a href="{{ route('follow.index') }}" class="c-btn c-btn--green">編集</a>
+                <a href="{{ route('follow.index') }}" class="c-btn c-btn--blue">実行</a>
             </div>
         </div>
         
@@ -30,8 +30,8 @@
             </div>
 
             <div class="l-primary__bottom">
-                <a href="{{ route('favorite.keywords') }}" class="c-btn c-btn--blue">キーワード登録</a>
                 <a href="{{ route('favorite.index') }}" class="c-btn c-btn--green">編集</a>
+                <a href="{{ route('favorite.index') }}" class="c-btn c-btn--blue">実行</a>
             </div>
         </div>
 
@@ -44,11 +44,25 @@
 
             <div class="l-primary__bottom">
                 <a href="{{ route('tweet.index') }}" class="c-btn c-btn--green">編集</a>
+                <a href="{{ route('tweet.index') }}" class="c-btn c-btn--blue">実行</a>
             </div>
         </div>
     </div>
 
     <div class="l-sidebar">
+        <div class="l-sidebar__contents">
+            <h3 class="l-sidebar__heading">キーワード</h3>
+
+            <a href="{{ route('follow.keywords') }}" class="l-sidebar__bottom fas fa-plus">フォローキーワード追加</a>
+            <a href="{{ route('favorite.keywords') }}" class="l-sidebar__bottom fas fa-plus">いいねキーワード追加</a>
+        </div>
+        
+        <div class="l-sidebar__contents">
+            <h3 class="l-sidebar__heading">ターゲットアカウント</h3>
+
+            <a href="{{ route('target.index') }}" class="l-sidebar__bottom fas fa-plus">ターゲット追加</a>
+        </div>
+        
         <div class="l-sidebar__contents">
             <h3 class="l-sidebar__heading"><a href="{{ route('account.index') }}">アカウント</a></h3>
 

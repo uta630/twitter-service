@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="l-container p-jumbotron__wrap">
+<div class="l-container l-container--fit p-jumbotron__wrap">
     <div class="p-jumbotron">
         <div class="p-jumbotron__inner">
             <h2 class="p-jumbotron__title">Twitter自動集客システム「神ったー」</h2>
