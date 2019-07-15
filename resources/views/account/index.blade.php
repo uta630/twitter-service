@@ -2,64 +2,37 @@
 
 @section('content')
 <div class="l-container">
-    @if (session('status'))
-        <div class="u-alert u-alert--success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
+    <div class="p-account">
+        @if (session('status'))
+            <div class="u-alert u-alert--success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
 
-    <div class="l-primary">
-        <div class="l-primary__contents">
-            <h2 class="l-primary__heading">アカウント１</h2>
+        <!-- <h2 class="p-account__heading">アカウント一覧</h2> -->
+
+        <div class="p-account__items">
+            <a href="{{ route('account.user') }}" class="p-account__item c-panel">
+                <img src="/icon.jpg" alt="サムネ" class="c-panel__thumb">
+                <span class="c-panel__name">@TwitterJP</span>
+            </a>
             
-            <div class="l-primary__body">
-                <p>ここにコンテンツの内容が表示されます。</p>
-            </div>
-
-            <div class="l-primary__bottom">
-                <a href="{{ route('account.user') }}" class="c-btn c-btn--green">編集</a>
-                <a href="/" class="c-btn c-btn--red">削除</a>
-            </div>
-        </div>
-        
-        <div class="l-primary__contents">
-            <h2 class="l-primary__heading">アカウント２</h2>
+            <a href="{{ route('account.user') }}" class="p-account__item c-panel">
+                <img src="/icon.jpg" alt="サムネ" class="c-panel__thumb">
+                <span class="c-panel__name">@MomentsJapan</span>
+            </a>
             
-            <div class="l-primary__body">
-                <p>ここにコンテンツの内容が表示されます。</p>
-            </div>
-
-            <div class="l-primary__bottom">
-                <a href="{{ route('account.user') }}" class="c-btn c-btn--green">編集</a>
-                <a href="/" class="c-btn c-btn--red">削除</a>
-            </div>
-        </div>
-
-        <div class="l-primary__contents">
-            <h2 class="l-primary__heading">アカウント一覧ページ!!!（マイページ）</h2>
+            <a href="{{ route('account.user') }}" class="p-account__item c-panel">
+                <img src="/icon.jpg" alt="サムネ" class="c-panel__thumb">
+                <span class="c-panel__name">@TwitterMediaJP</span>
+            </a>
             
-            <div class="l-primary__body">
-                <p>ここにコンテンツの内容が表示されます。</p>
-            </div>
-
-            <div class="l-primary__bottom">
-                <a href="{{ route('account.user') }}" class="c-btn c-btn--green">編集</a>
-                <a href="/" class="c-btn c-btn--red">削除</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="l-sidebar__sidebar">
-        <div class="l-sidebar__contents">
-            <h3 class="l-sidebar__heading">登録アカウント一覧</h3>
-
-            <ul class="l-sidebar__items">
-                <li class="l-sidebar__item"><a href="{{ route('account.index') }}" class="l-sidebar__link">@uta_mr_kiss</a></li>
-                <li class="l-sidebar__item"><a href="{{ route('account.index') }}" class="l-sidebar__link">@____uta_____</a></li>
-                <li class="l-sidebar__item"><a href="{{ route('account.index') }}" class="l-sidebar__link">@analfxxkers2010</a></li>
-            </ul>
-
-            <a href="/" class="l-sidebar__bottom fas fa-plus">アカウント追加</a>
+            <a href="{{ route('account.user') }}" class="p-account__item c-panel">
+                <img src="/icon.jpg" alt="サムネ" class="c-panel__thumb">
+                <span class="c-panel__name">@twitcasting_jp</span>
+            </a>
+            
+            <a href="{{ route('account.register') }}" class="p-account__item c-panel c-panel--nodata fas fa-plus-circle fa-6x"></a>
         </div>
     </div>
 </div>

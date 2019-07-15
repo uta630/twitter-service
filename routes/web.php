@@ -19,21 +19,21 @@ Route::get('/', function () { return view('welcome'); });
 Auth::routes();
 
 // Account
-Route::get('/account', 'HomeController@index')->name('account.index'); // top page
-Route::get('/account/register', 'AccountController@register')->name('account.register');
-Route::get('/account/1', 'AccountController@user')->name('account.user');
+Route::get('/account', 'Account\AccountController@index')->name('account.index'); // top page
+Route::get('/account/register', 'Account\AccountController@register')->name('account.register');
+Route::get('/account/1', 'Account\AccountController@user')->name('account.user');
 
 // Target
-Route::get('/account/1/target', 'TargetController@index')->name('target.index');
-Route::get('/account/1/target/register', 'TargetController@targetRegister')->name('target.register');
+Route::get('/account/1/target', 'Contents\TargetController@index')->name('target.index');
+Route::get('/account/1/target/register', 'Contents\TargetController@targetRegister')->name('target.register');
 
 // Follow
-Route::get('/account/1/follow', 'FollowController@index')->name('follow.index');
-Route::get('/account/1/follow/keywords', 'FollowController@keywords')->name('follow.keywords');
+Route::get('/account/1/follow', 'Contents\FollowController@index')->name('follow.index');
+Route::get('/account/1/follow/keywords', 'Contents\FollowController@keywords')->name('follow.keywords');
 
 // Favorite
-Route::get('/account/1/favorite', 'FavoriteController@index')->name('favorite.index');
-Route::get('/account/1/favorite/keywords', 'FavoriteController@keywords')->name('favorite.keywords');
+Route::get('/account/1/favorite', 'Contents\FavoriteController@index')->name('favorite.index');
+Route::get('/account/1/favorite/keywords', 'Contents\FavoriteController@keywords')->name('favorite.keywords');
 
 // Tweet
-Route::get('/account/1/tweet', 'TweetController@index')->name('tweet.index');
+Route::get('/account/1/tweet', 'Contents\TweetController@index')->name('tweet.index');
