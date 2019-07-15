@@ -1,23 +1,23 @@
 .l-header {
     position: fixed;
     top: 0;
+    right: 0;
     left: 0;
 
     background: rgba(58, 89, 151, 0.9);
 
+    max-width: $max-width;
+    width: 86%;
     height: $headerHeight;
+
+    margin: auto;
 
     z-index: 1;
 
     &__row {
         display: flex;
         justify-content: space-between;
-
-        max-width: 1280px;
-        width: 86%;
         height: $headerHeight;
-    
-        margin: auto;
     }
 
     &__logo {

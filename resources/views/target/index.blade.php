@@ -8,7 +8,7 @@
         </div>
     @endif
 
-    <div class="c-settings">
+    <form method="post" action="" class="c-settings">
         <h2 class="c-settings__heading fas fa-heart">ターゲットアカウント</h2>
 
         <div class="c-settings__field">
@@ -23,6 +23,6 @@
         <div class="c-settings__bottom">
             <a href="{{ route('account.user') }}" class="c-btn c-btn--blue">登録</a>
         </div>
-    </div>
+    </form>
 </div>
 @endsection

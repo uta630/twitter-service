@@ -3,6 +3,7 @@ $SidebarFlexBasis: 240px;
 
 .l-primary {
     flex-basis: calc(100% - #{$SidebarFlexBasis} - #{$SidebarMarginRight});
+    
     &__contents {
         background: $white;
 
@@ -19,6 +20,8 @@ $SidebarFlexBasis: 240px;
         margin-bottom: 12px;
         padding-bottom: 12px;
 
+        font-size: 18px;
+        
         border-bottom: 1px dotted $gray;
 
         &::before {
