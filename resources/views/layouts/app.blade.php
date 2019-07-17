@@ -31,20 +31,24 @@
 
                     <ul class="c-navbar__items">
                         @guest
-                            <li class="c-navbar__item">
-                                <a class="c-navbar__link" href="{{ route('login') }}"><i class="c-navbar__link--icon fas fa-lock"></i>ログイン</a>
-                            </li>
                             @if (Route::has('register'))
                                 <li class="c-navbar__item">
-                                    <a class="c-navbar__link" href="{{ route('register') }}"><i class="c-navbar__link--icon far fa-user-circle"></i>ユーザー登録</a>
+                                    <a class="c-navbar__link" href="{{ route('register') }}"><i class="c-navbar__link--icon fas fa-user"></i>ユーザー登録</a>
                                 </li>
                             @endif
+                            <li class="c-navbar__item">
+                                <a class="c-navbar__link" href="{{ route('login') }}"><i class="c-navbar__link--icon fas fa-sign-in-alt"></i>ログイン</a>
+                            </li>
                         @else
+                            <li class="c-navbar__item">
+                                <a class="c-navbar__link" href="{{ route('account.index') }}"><i class="c-navbar__link--icon fas fa-users"></i>アカウント一覧</a>
+                            </li>
                             <li class="c-navbar__item">
                                 <div class="c-navbar__item--logout" aria-labelledby="navbarDropdown">
                                     <a class="c-navbar__link" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
+                                        <i class="c-navbar__link--icon fas fa-sign-out-alt"></i>
                                         ログアウト
                                     </a>
 

@@ -10,7 +10,7 @@
         </div>
 
         <div class="p-jumbotron__bottom">
-            <a href="{{ route('register') }}" class="p-jumbotron__link c-btn c-btn--blue">登録</a>
+            <a href="{{ route('register') }}" class="p-jumbotron__link c-btn c-btn--blue">ユーザー登録</a>
             <a href="{{ route('login') }}" class="p-jumbotron__link c-btn c-btn--green">ログイン</a>
         </div>
     </div>
