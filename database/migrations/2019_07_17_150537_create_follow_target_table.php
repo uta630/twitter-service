@@ -15,9 +15,9 @@ class CreateFollowTargetTable extends Migration
     {
         Schema::create('follow_target', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('target_id');
-            $table->date('created_at');
+            $table->date('created_at')->nullable()->change();
         });
     }
 

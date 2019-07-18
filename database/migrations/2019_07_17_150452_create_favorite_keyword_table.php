@@ -15,9 +15,9 @@ class CreateFavoriteKeywordTable extends Migration
     {
         Schema::create('favorite_keyword', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('keyword');
-            $table->date('created_at');
+            $table->date('created_at')->nullable()->change();
         });
     }
 

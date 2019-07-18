@@ -15,9 +15,9 @@ class CreateTweetBookingTable extends Migration
     {
         Schema::create('tweet_booking', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('tweet');
-            $table->date('release');
+            $table->date('release')->nullable()->change();
             $table->boolean('status');
             $table->timestamps();
             $table->softDeletes();
