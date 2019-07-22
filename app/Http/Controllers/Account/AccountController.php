@@ -25,8 +25,10 @@ class AccountController extends Controller
         // サービスで使用するアカウントの登録ページ
         return view('account.register');
     }
-    public function user()
+    public function user($id)
     {
-        return view('account.user');
+        $items = \DB::table('users')->find($id);
+
+        return $items === NULL ? redirect('account') : view('account.user', compact('users'));
     }
 }

@@ -21,7 +21,7 @@ Auth::routes();
 // Account
 Route::get('/account', 'Account\AccountController@index')->name('account.index'); // top page
 Route::get('/account/register', 'Account\AccountController@register')->name('account.register');
-Route::get('/account/1', 'Account\AccountController@user')->name('account.user');
+Route::get('/account/{id?}', 'Account\AccountController@user')->name('account.user');
 
 // Target
 Route::get('/account/1/target', 'Account\TargetController@index')->name('target.index');
