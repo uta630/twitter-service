@@ -25,5 +25,7 @@
     
     &--center {
         @include fx-c;
+
+        min-height: 100vh;
     }
 }

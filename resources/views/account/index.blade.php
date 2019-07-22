@@ -32,7 +32,9 @@
                 <span class="c-panel__name">@twitcasting_jp</span>
             </a>
             
-            <a href="{{ route('account.register') }}" class="p-account__item c-panel c-panel--nodata fas fa-plus-circle fa-6x"></a>
+            <a href="{{ route('account.register') }}" class="p-account__item c-panel c-panel--nondata">
+                <i class="c-panel--nondata-icon fas fa-plus-circle fa-6x"></i>
+            </a>
         </div>
     </div>
 </div>

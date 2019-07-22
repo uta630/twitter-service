@@ -6605,6 +6605,7 @@ button {
   display: flex;
   -webkit-box-pack: center;
           justify-content: center;
+  min-height: 100vh;
 }
 
 .l-primary {
@@ -6622,7 +6623,7 @@ button {
 
 .l-primary__contents {
   background: #fff;
-  padding: 24px;
+  padding: 32px 28px;
 }
 
 .l-primary__contents:not(:last-child) {
@@ -7092,11 +7093,26 @@ button {
   border-radius: 3px;
 }
 
-.c-panel--nodata {
+.c-panel--nondata {
+  position: relative;
   background: none;
+<<<<<<< Updated upstream
   padding: 6%;
+=======
+>>>>>>> Stashed changes
   color: #fff;
   border: 2px dotted #dadada;
+}
+
+.c-panel--nondata-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 96px;
+  height: 96px;
+  margin: auto;
 }
 
 .c-panel:hover {
