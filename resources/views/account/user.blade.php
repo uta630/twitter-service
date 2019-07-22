@@ -9,7 +9,7 @@
     @endif
 
     <div class="l-primary">
-        <h1 class="l-primary__title">@TwitterJP</h1>
+        <h1 class="l-primary__title">&#x40;{{ $account->account_id }}</h1>
 
         <div class="l-primary__contents">
             <h2 class="l-primary__heading fas fa-user-plus">自動フォロー</h2>
@@ -68,12 +68,11 @@
         <div class="l-sidebar__contents">
             <h3 class="l-sidebar__heading"><a href="{{ route('account.index') }}">ご利用アカウントID</a></h3>
 
-            <ul class="l-sidebar__items">
-                <li class="l-sidebar__item"><a href="{{ route('account.user') }}" class="l-sidebar__link is-active">@TwitterJP</a></li>
-                <li class="l-sidebar__item"><a href="{{ route('account.user') }}" class="l-sidebar__link">@MomentsJapan</a></li>
-                <li class="l-sidebar__item"><a href="{{ route('account.user') }}" class="l-sidebar__link">@TwitterMediaJP</a></li>
-                <li class="l-sidebar__item"><a href="{{ route('account.user') }}" class="l-sidebar__link">@twitcasting_jp</a></li>
-            </ul>
+            @foreach($accountList as $item)
+                @if($loop->first)<ul class="l-sidebar__items">@endif
+                    <li class="l-sidebar__item"><a href="{{ route('account.user') }}" class="l-sidebar__link @if($item->id === 1) is-active @endif">&#x40;{{ $item->account_id }}</a></li>
+                @if($loop->last)</ul>@endif
+            @endforeach
 
             <a href="{{ route('account.register') }}" class="l-sidebar__bottom fas fa-plus">アカウント追加</a>
         </div>

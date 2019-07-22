@@ -14,7 +14,7 @@ class FollowTargetTableSeeder extends Seeder
     {
         DB::table('follow_target')->insert([
             'user_id'    => 1,
-            'target_id'  => 'TwitterAPI',
+            'target_id'  => 'target_user',
             'created_at' => Carbon::now(),
         ]);
     }

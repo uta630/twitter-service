@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Account;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AccountController extends Controller
 {
@@ -27,8 +29,15 @@ class AccountController extends Controller
     }
     public function user($id)
     {
-        $items = \DB::table('users')->find($id);
+        // ユーザー情報
+        $user = Auth::user();
 
-        return $items === NULL ? redirect('account') : view('account.user', compact('users'));
+        // サイドバー : アカウント一覧
+        $accountList = DB::table('account')->where('user_id', $user->id)->get();
+
+        // プライマリー : 表示するアカウント
+        $account = DB::table('account')->where([['user_id', $user->id], ['id', $id]])->first();
+
+        return $account ? view('account.user', compact('user', 'accountList', 'account')) : redirect('account') ;
     }
 }
