@@ -7096,10 +7096,6 @@ button {
 .c-panel--nondata {
   position: relative;
   background: none;
-<<<<<<< Updated upstream
-  padding: 6%;
-=======
->>>>>>> Stashed changes
   color: #fff;
   border: 2px dotted #dadada;
 }
