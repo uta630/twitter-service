@@ -13,9 +13,21 @@ class FollowListTableSeeder extends Seeder
     public function run()
     {
         DB::table('follow_list')->insert([
-            'user_id'      => 1,
-            'account_id'   => 'Twitter',
-            'created_at'   => Carbon::now(),
+            [
+                'user_id'    => 1,
+                'account_id' => 'Yahoo',
+                'created_at' => Carbon::now(),
+            ],
+            [
+                'user_id'    => 2,
+                'account_id' => 'TwitterJP',
+                'created_at' => Carbon::now(),
+            ],
+            [
+                'user_id'    => 1,
+                'account_id' => 'TwitterJP',
+                'created_at' => Carbon::now(),
+            ],
         ]);
     }
 }

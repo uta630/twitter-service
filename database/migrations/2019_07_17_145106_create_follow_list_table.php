@@ -17,7 +17,7 @@ class CreateFollowListTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->string('account_id');
-            $table->date('created_at');
+            $table->timestamp('created_at')->nullable();
         });
     }
 

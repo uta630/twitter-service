@@ -19,9 +19,9 @@ class CreateUseStatusTable extends Migration
             $table->boolean('follow_status');
             $table->boolean('favorite_status');
             $table->boolean('booking_status');
-            $table->date('follow_at')->nullable()->change();
-            $table->date('favorite_at')->nullable()->change();
-            $table->date('booking_at')->nullable()->change();
+            $table->timestamp('follow_at')->nullable();
+            $table->timestamp('favorite_at')->nullable();
+            $table->timestamp('booking_at')->nullable();
         });
     }
 

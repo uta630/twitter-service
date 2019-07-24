@@ -12,8 +12,8 @@ class UnFollowListTableSeeder extends Seeder
     public function run()
     {
         DB::table('unfollow_list')->insert([
-            'user_id'      => 1,
-            'account_id'   => 'MomentsJapan',
+            'user_id'    => 1,
+            'account_id' => 'MomentsJapan',
         ]);
     }
 }

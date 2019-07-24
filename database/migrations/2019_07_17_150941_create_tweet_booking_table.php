@@ -17,7 +17,7 @@ class CreateTweetBookingTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->string('tweet');
-            $table->date('release')->nullable()->change();
+            $table->timestamp('release')->nullable();
             $table->boolean('status');
             $table->timestamps();
             $table->softDeletes();
