@@ -18,16 +18,16 @@
 
         <div class="c-settings__field">
             <h3 class="c-settings__title c-settings__favorite">登録されているキーワード</h3>
-            <p>いいねキーワード</p>
-            <p>いいねキーワード</p>
-            <p>いいねキーワード</p>
-            <p>いいねキーワード</p>
-            <p>いいねキーワード</p>
-            <p>いいねキーワード</p>
+            
+            @foreach($favoriteKeywords as $item)
+                @if($loop->first)<ul class="l-sidebar__items">@endif
+                    <p>{{ $item->keyword }}</p>
+                @if($loop->last)</ul>@endif
+            @endforeach
         </div>
 
         <div class="c-settings__bottom">
-            <a href="{{ route('account.user') }}" class="c-btn c-btn--blue">登録</a>
+            <a href="{{ route('account.user', $id) }}" class="c-btn c-btn--blue">登録</a>
         </div>
     </form>
 </div>

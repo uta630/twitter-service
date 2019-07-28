@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Contents;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class FavoriteController extends Controller
 {
@@ -17,10 +19,13 @@ class FavoriteController extends Controller
      * 1. favoriteerSort : フォロワーを精査してリスト化
      * 2. followExecute  : 生成したリストを順にフォロー
      */
-    public function index()
+    public function index($id)
     {
+        $user = Auth::user();
+        $account = DB::table('account')->where('user_id', $user->id)->get()[$id-1];
+
         // いいね情報
-        return view('favorite.index');
+        return view('favorite.index', compact('id', 'account'));
     }
     public function start()
     {
@@ -37,14 +42,19 @@ class FavoriteController extends Controller
         // 2. 自動いいねの実行
         return view('favorite.execute');
     }
-    public function keywords()
+    public function keywords($id)
     {
+        // ユーザー情報
+        $user = Auth::user();
+
         // いいね用キーワード一覧
-        return view('favorite.keywords');
+        $favoriteKeywords = DB::table('favorite_keyword')->where('user_id', $user->id)->get();
+
+        return view('favorite.keywords', compact('id', 'user', 'favoriteKeywords'));
     }
     public function keywordsRegister()
     {
         // いいね用キーワード登録
-        return view('favorite.keywordsRegister');
+        return redirect('favorite.keywords');
     }
 }

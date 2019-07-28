@@ -28,6 +28,13 @@ class UsersTableSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
+            [
+                'name'       => 'admin',
+                'email'      => 'admin@admin.com',
+                'password'   => bcrypt('admin'),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
         ]);
     }
 }
