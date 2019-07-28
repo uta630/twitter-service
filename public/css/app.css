@@ -6605,15 +6605,25 @@ button {
   display: flex;
   -webkit-box-pack: center;
           justify-content: center;
+  min-height: 100vh;
 }
 
 .l-primary {
   flex-basis: calc(100% - 240px - 32px);
 }
 
+.l-primary__title {
+  margin-bottom: 24px;
+  padding-left: 12px;
+  line-height: 2;
+  color: #fff;
+  font-size: 24px;
+  border-left: 4px solid #fff;
+}
+
 .l-primary__contents {
   background: #fff;
-  padding: 24px;
+  padding: 32px 28px;
 }
 
 .l-primary__contents:not(:last-child) {
@@ -6647,13 +6657,10 @@ button {
           justify-content: center;
 }
 
-.l-sidebar {
-  flex-basis: 240px;
-}
-
 @media screen and (min-width: 768px) {
   .l-sidebar {
     margin-right: 32px;
+    width: 240px;
   }
 }
 
@@ -6666,6 +6673,10 @@ button {
 .l-sidebar__contents {
   background: #fff;
   padding: 24px;
+}
+
+.l-sidebar__contents:not(:last-child) {
+  padding-bottom: 12px;
 }
 
 .l-sidebar__heading {
@@ -6698,6 +6709,10 @@ button {
 
 .l-sidebar__link:hover {
   text-decoration: underline;
+}
+
+.l-sidebar__link.is-active {
+  font-weight: bold;
 }
 
 .l-sidebar__bottom {
@@ -6929,7 +6944,7 @@ button {
   content: "";
   display: block;
   position: absolute;
-  top: -1px;
+  top: -2px;
   bottom: 0;
   left: 2px;
   width: 12px;
@@ -7078,11 +7093,22 @@ button {
   border-radius: 3px;
 }
 
-.c-panel--nodata {
+.c-panel--nondata {
+  position: relative;
   background: none;
-  padding: 5%;
   color: #fff;
   border: 2px dotted #dadada;
+}
+
+.c-panel--nondata-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 96px;
+  height: 96px;
+  margin: auto;
 }
 
 .c-panel:hover {

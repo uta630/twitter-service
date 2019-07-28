@@ -8,14 +8,26 @@
     border: 1px solid $gray;
     border-radius: 3px;
 
-    &--nodata {
+    &--nondata {
+        position: relative;
         background: none;
-
-        padding: 5%;
 
         color: $white;
         
         border: 2px dotted #dadada;
+
+        &-icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            width: 96px;
+            height: 96px;
+
+            margin: auto;
+        }
     }
 
     &:hover {

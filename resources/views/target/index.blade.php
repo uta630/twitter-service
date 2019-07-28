@@ -13,15 +13,16 @@
 
         <div class="c-settings__field">
             <h3 class="c-settings__title c-settings__account">ターゲット一覧</h3>
-            <p class="c-settings__text">@exampleName</p>
-            <p class="c-settings__text">@exampleName</p>
-            <p class="c-settings__text">@exampleName</p>
-            <p class="c-settings__text">@exampleName</p>
-            <p class="c-settings__text">@exampleName</p>
+
+            @foreach($target as $item)
+                @if($loop->first)<ul class="c-settings__text">@endif
+                    <p>{{ $item->target_id }}</p>
+                @if($loop->last)</ul>@endif
+            @endforeach
         </div>
 
         <div class="c-settings__bottom">
-            <a href="{{ route('account.user') }}" class="c-btn c-btn--blue">登録</a>
+            <a href="{{ route('account.user', $id) }}" class="c-btn c-btn--blue">登録</a>
         </div>
     </form>
 </div>

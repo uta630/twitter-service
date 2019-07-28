@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Contents;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TweetController extends Controller
 {
@@ -17,10 +19,13 @@ class TweetController extends Controller
      * 1. tweetReservationEdit : 自動ツイートの編集
      * 2. tweetExecute         : 自動ツイートの実行
      */
-    public function index()
+    public function index($id)
     {
+        $user = Auth::user();
+        $account = DB::table('account')->where('user_id', $user->id)->get()[$id-1];
+
         // ツイート履歴(予約を含む)
-        return view('tweet.index');
+        return view('tweet.index', compact('id', 'account'));
     }
     public function tweetReservation()
     {
