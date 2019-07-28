@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+use App\Account;
 
 class AccountController extends Controller
 {
@@ -33,8 +36,25 @@ class AccountController extends Controller
     }
     public function register()
     {
-        // サービスで使用するアカウントの登録ページ
         return view('account.register');
+    }
+    public function create(Request $request)
+    {
+        // バリデーション
+        $request->validate([
+            'account_id'   => 'required|string|max:255',
+            'account_name' => 'required|string|max:255',
+            'token'        => 'required|string|max:255',
+        ]);
+
+        // 保存
+        $account = new Account;
+        $account->user_id = auth()->id();
+        $request->token = Hash::make($request->get('token'));
+        $account->fill($request->all())->save();
+
+        //リダイレクト
+        return redirect()->route('account.index');
     }
     public function user($id)
     {

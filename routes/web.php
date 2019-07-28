@@ -23,35 +23,37 @@ Route::get('/account', 'Account\AccountController@index') // top page
     ->name('account.index');
 Route::get('/account/register', 'Account\AccountController@register')
     ->name('account.register');
+Route::post('/account/create', 'Account\AccountController@create')
+    ->name('account.create');
 Route::get('/account/{id}', 'Account\AccountController@user')
     ->where('id', '[0-9]+')
     ->name('account.user');
 
 // Target
-Route::get('/account/{id?}/target', 'Account\TargetController@index')
-    ->where('id', '[0-9]+')
+Route::get('/account/target', 'Account\TargetController@index')
     ->name('target.index');
-Route::get('/account/{id?}/target/register', 'Account\TargetController@targetRegister')
-    ->where('id', '[0-9]+')
-    ->name('target.register');
+Route::post('/account/target/create', 'Account\TargetController@create')
+    ->name('target.create');
 
 // Follow
-Route::get('/account/{id?}/follow', 'Contents\FollowController@index')
+Route::get('/account/{id}/follow', 'Contents\FollowController@index')
     ->where('id', '[0-9]+')
     ->name('follow.index');
-Route::get('/account/{id?}/follow/keywords', 'Contents\FollowController@keywords')
-    ->where('id', '[0-9]+')
+Route::get('/account/follow/keywords', 'Contents\FollowController@keywords')
     ->name('follow.keywords');
+Route::post('/account/follow/create', 'Contents\FollowController@create')
+    ->name('follow.create');
 
 // Favorite
-Route::get('/account/{id?}/favorite', 'Contents\FavoriteController@index')
+Route::get('/account/{id}/favorite', 'Contents\FavoriteController@index')
     ->where('id', '[0-9]+')
     ->name('favorite.index');
-Route::get('/account/{id?}/favorite/keywords', 'Contents\FavoriteController@keywords')
-    ->where('id', '[0-9]+')
+Route::get('/account/favorite/keywords', 'Contents\FavoriteController@keywords')
     ->name('favorite.keywords');
+    Route::post('/account/favorite/create', 'Contents\FavoriteController@create')
+        ->name('favorite.create');
 
 // Tweet
-Route::get('/account/{id?}/tweet', 'Contents\TweetController@index')
+Route::get('/account/{id}/tweet', 'Contents\TweetController@index')
     ->where('id', '[0-9]+')
     ->name('tweet.index');

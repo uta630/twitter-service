@@ -16,27 +16,22 @@ class FollowKeywordTableSeeder extends Seeder
             [
                 'user_id'    => 1,
                 'keyword'    => '11111',
-                'created_at' => Carbon::now(),
             ],
             [
                 'user_id'    => 1,
                 'keyword'    => '22222',
-                'created_at' => Carbon::now(),
             ],
             [
                 'user_id'    => 2,
                 'keyword'    => 'z = x + y',
-                'created_at' => Carbon::now(),
             ],
             [
                 'user_id'    => 3,
                 'keyword'    => 'asdfghjkl',
-                'created_at' => Carbon::now(),
             ],
             [
                 'user_id'    => 1,
                 'keyword'    => '33333',
-                'created_at' => Carbon::now(),
             ],
         ]);
     }

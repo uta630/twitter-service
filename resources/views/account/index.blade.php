@@ -19,7 +19,8 @@
             {{-- 10個未満であればアカウント追加ボタンを表示 --}}
             @if($loop->last && $loop->index+1 < 10)
             <a href="{{ route('account.register') }}" class="p-account__item c-panel c-panel--nondata">
-                <i class="c-panel--nondata-icon fas fa-plus-circle fa-6x"></i>
+                <img src="/icon.jpg" alt="アカウント追加" class="c-panel__thumb">
+                <span class="c-panel__name">アカウント追加</span>
             </a>
             @endif
             @endforeach

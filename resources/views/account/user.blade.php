@@ -55,14 +55,14 @@
         <div class="l-sidebar__contents">
             <h3 class="l-sidebar__heading">キーワード</h3>
 
-            <a href="{{ route('follow.keywords', $id) }}" class="l-sidebar__bottom fas fa-plus">フォローキーワード追加</a>
-            <a href="{{ route('favorite.keywords', $id) }}" class="l-sidebar__bottom fas fa-plus">いいねキーワード追加</a>
+            <a href="{{ route('follow.keywords') }}" class="l-sidebar__bottom fas fa-plus">フォローキーワード追加</a>
+            <a href="{{ route('favorite.keywords') }}" class="l-sidebar__bottom fas fa-plus">いいねキーワード追加</a>
         </div>
         
         <div class="l-sidebar__contents">
             <h3 class="l-sidebar__heading">ターゲットアカウント</h3>
 
-            <a href="{{ route('target.index', $id) }}" class="l-sidebar__bottom fas fa-plus">ターゲット追加</a>
+            <a href="{{ route('target.index') }}" class="l-sidebar__bottom fas fa-plus">ターゲット追加</a>
         </div>
         
         <div class="l-sidebar__contents">

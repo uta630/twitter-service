@@ -2,19 +2,19 @@
 
 @section('content')
 <div class="l-container l-container--center">
-    <form method="POST" action="" class="c-form">
+    <form method="POST" action="{{ route('account.create') }}" class="c-form">
         @csrf
 
         <h2 class="c-form__heading">アカウント追加</h2>
 
         <div class="c-form__body">
             <div class="c-form__field">
-                <label for="name" class="c-form__label">名前</label>
+                <label for="account_id" class="c-form__label">アカウントID</label>
 
                 <div class="c-form__input-wrap">
-                    <input id="name" type="text" class="c-form__control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <input id="account_id" type="text" class="c-form__control @error('account_id') is-invalid @enderror" name="account_id" value="{{ old('account_id') }}" required autocomplete="account_id" autofocus>
 
-                    @error('name')
+                    @error('account_id')
                         <span class="c-form__invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -23,12 +23,12 @@
             </div>
 
             <div class="c-form__field">
-                <label for="email" class="c-form__label">メールアドレス</label>
+                <label for="account_name" class="c-form__label">アカウント名</label>
 
                 <div class="c-form__input-wrap">
-                    <input id="email" type="email" class="c-form__control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                    <input id="account_name" type="text" class="c-form__control @error('account_name') is-invalid @enderror" name="account_name" value="{{ old('account_name') }}" required autocomplete="account_name" autofocus>
 
-                    @error('email')
+                    @error('account_name')
                         <span class="c-form__invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -37,24 +37,16 @@
             </div>
 
             <div class="c-form__field">
-                <label for="password" class="c-form__label">パスワード</label>
+                <label for="token" class="c-form__label">トークン</label>
 
                 <div class="c-form__input-wrap">
-                    <input id="password" type="password" class="c-form__control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                    <input id="token" type="text" class="c-form__control @error('token') is-invalid @enderror" name="token" value="{{ old('token') }}" required autocomplete="token" autofocus>
 
-                    @error('password')
+                    @error('token')
                         <span class="c-form__invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                </div>
-            </div>
-
-            <div class="c-form__field">
-                <label for="password-confirm" class="c-form__label">パスワード再入力</label>
-
-                <div class="c-form__input-wrap">
-                    <input id="password-confirm" type="password" class="c-form__control" name="password_confirmation" required autocomplete="new-password">
                 </div>
             </div>
 
