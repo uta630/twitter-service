@@ -13,7 +13,6 @@ class Account extends Model
         'user_id',
         'account_id',
         'account_name',
-        'token',
     ];
 
     // 変更できないカラム

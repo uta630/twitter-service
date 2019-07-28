@@ -37,20 +37,6 @@
             </div>
 
             <div class="c-form__field">
-                <label for="token" class="c-form__label">トークン</label>
-
-                <div class="c-form__input-wrap">
-                    <input id="token" type="text" class="c-form__control @error('token') is-invalid @enderror" name="token" value="{{ old('token') }}" required autocomplete="token" autofocus>
-
-                    @error('token')
-                        <span class="c-form__invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="c-form__field">
                 <button type="submit" class="c-btn c-btn--blue">登録</button>
             </div>
         </div>

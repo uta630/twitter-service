@@ -44,13 +44,11 @@ class AccountController extends Controller
         $request->validate([
             'account_id'   => 'required|string|max:255',
             'account_name' => 'required|string|max:255',
-            'token'        => 'required|string|max:255',
         ]);
 
         // 保存
         $account = new Account;
         $account->user_id = auth()->id();
-        $request->token = Hash::make($request->get('token'));
         $account->fill($request->all())->save();
 
         //リダイレクト
