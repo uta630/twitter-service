@@ -41,7 +41,11 @@
             <h2 class="l-primary__heading fas fa-comment-dots">自動ツイート</h2>
             
             <div class="l-primary__body">
-                <p>ここに設定内容が表示されます。</p>
+                <p class="l-primary__subheading">・ツイート内容</p>
+                <p class="l-primary__desc">{{ $tweet->tweet }}</p>
+
+                <p class="l-primary__subheading">・予約日時</p>
+                <p class="l-primary__desc">{{ $tweet->release }}</p>
             </div>
 
             <div class="l-primary__bottom">

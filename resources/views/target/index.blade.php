@@ -18,7 +18,7 @@
 
             @foreach($target as $item)
                 @if($loop->first)<ul class="c-settings__text">@endif
-                    <p>&#x40;{{ $item->target_id }}</p>
+                    <li>&#x40;{{ $item->target_id }}</li>
                 @if($loop->last)</ul>@endif
             @endforeach
         </div>

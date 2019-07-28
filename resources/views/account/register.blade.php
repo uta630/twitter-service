@@ -26,7 +26,7 @@
                 <label for="account_name" class="c-form__label">アカウント名</label>
 
                 <div class="c-form__input-wrap">
-                    <input id="account_name" type="text" class="c-form__control @error('account_name') is-invalid @enderror" name="account_name" value="{{ old('account_name') }}" required autocomplete="account_name" autofocus>
+                    <input id="account_name" type="text" class="c-form__control @error('account_name') is-invalid @enderror" name="account_name" value="{{ old('account_name') }}" required autocomplete="account_name">
 
                     @error('account_name')
                         <span class="c-form__invalid-feedback" role="alert">

@@ -6648,6 +6648,14 @@ button {
   margin-bottom: 12px;
 }
 
+.l-primary__subheading {
+  margin-top: 12px;
+}
+
+.l-primary__desc {
+  margin-left: 1em;
+}
+
 .l-primary__bottom {
   -webkit-box-align: center;
           align-items: center;
@@ -6990,6 +6998,12 @@ button {
 
 .c-settings__field {
   margin: 24px 0;
+}
+
+.c-settings__title {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
 }
 
 .c-settings__bottom {

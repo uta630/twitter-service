@@ -18,13 +18,13 @@
 
             @foreach($followKeywords as $item)
                 @if($loop->first)<ul class="l-sidebar__items">@endif
-                    <p>{{ $item->keyword }}</p>
+                    <li>{{ $item->keyword }}</li>
                 @if($loop->last)</ul>@endif
             @endforeach
         </div>
 
         <div class="c-form__field">
-            <label for="keyword" class="c-form__label">キーワード</label>
+            <label for="keyword" class="c-form__label">登録するキーワード</label>
 
             <div class="c-form__input-wrap">
                 <input id="keyword" type="text" class="c-form__control @error('keyword') is-invalid @enderror" name="keyword" value="{{ old('keyword') }}" required autocomplete="keyword" autofocus>
