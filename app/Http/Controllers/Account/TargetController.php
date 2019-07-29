@@ -36,7 +36,7 @@ class TargetController extends Controller
     {
         // バリデーション
         $request->validate([
-            'target_id' => 'required|string|max:255',
+            'target_id' => 'required|unique:follow_target|string|max:255',
         ]);
 
         // 保存
