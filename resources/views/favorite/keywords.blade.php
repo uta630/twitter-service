@@ -18,7 +18,7 @@
             
             @foreach($favoriteKeywords as $item)
                 @if($loop->first)<ul class="l-sidebar__items">@endif
-                    <li>{{ $item->keyword }}</li>
+                    <li><a href="{{ route('favorite.keywordDelete', $item->id) }}" class="fas fa-trash"></a>{{ $item->keyword }}</li>
                 @if($loop->last)</ul>@endif
             @endforeach
         </div>

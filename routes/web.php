@@ -27,17 +27,19 @@ Route::get('/account/{id}', 'Account\AccountController@user')->where('id', '[0-9
 // Target
 Route::get('/account/target', 'Account\TargetController@index')->name('target.index');
 Route::post('/account/target/create', 'Account\TargetController@create')->name('target.create');
-Route::get('/account/target/delete/{target}', 'Account\TargetController@delete')->where('id', '[0-9]+')->name('target.delete');
+Route::get('/account/target/delete/{id}', 'Account\TargetController@delete')->where('id', '[0-9]+')->name('target.delete');
 
 // Follow
 Route::get('/account/{id}/follow', 'Contents\FollowController@index')->where('id', '[0-9]+')->name('follow.index');
 Route::get('/account/follow/keywords', 'Contents\FollowController@keywords')->name('follow.keywords');
 Route::post('/account/follow/create', 'Contents\FollowController@create')->name('follow.create');
+Route::get('/account/follow/delete/{id}', 'Contents\FollowController@keywordDelete')->where('id', '[0-9]+')->name('follow.keywordDelete');
 
 // Favorite
 Route::get('/account/{id}/favorite', 'Contents\FavoriteController@index')->where('id', '[0-9]+')->name('favorite.index');
 Route::get('/account/favorite/keywords', 'Contents\FavoriteController@keywords')->name('favorite.keywords');
 Route::post('/account/favorite/create', 'Contents\FavoriteController@create')->name('favorite.create');
+Route::get('/account/favorite/delete/{id}', 'Contents\FavoriteController@keywordDelete')->where('id', '[0-9]+')->name('favorite.keywordDelete');
 
 // Tweet
 Route::get('/account/{id}/tweet', 'Contents\TweetController@index')->where('id', '[0-9]+')->name('tweet.index');

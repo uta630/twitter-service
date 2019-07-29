@@ -80,4 +80,11 @@ class FavoriteController extends Controller
         //リダイレクト
         return redirect()->route('favorite.keywords');
     }
+    public function keywordDelete($id)
+    {
+        // $idをdelete
+        FavoriteKeyword::destroy($id);
+
+        return redirect()->route('favorite.keywords');
+    }
 }

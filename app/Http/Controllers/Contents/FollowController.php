@@ -83,4 +83,11 @@ class FollowController extends Controller
         //リダイレクト
         return redirect()->route('follow.keywords');
     }
+    public function keywordDelete($id)
+    {
+        // $idをdelete
+        FollowKeyword::destroy($id);
+
+        return redirect()->route('follow.keywords');
+    }
 }

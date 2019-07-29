@@ -50,7 +50,7 @@ class TargetController extends Controller
     }
     public function delete($id)
     {
-        // target_idと同じ名前をdelete
+        // $idをdelete
         FollowTarget::destroy($id);
 
         return redirect()->route('target.index');
