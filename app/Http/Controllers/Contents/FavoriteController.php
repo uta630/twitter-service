@@ -68,7 +68,7 @@ class FavoriteController extends Controller
     {
         // バリデーション
         $request->validate([
-            'keyword' => 'required|string|max:255',
+            'keyword' => 'required|unique:favorite_keyword|string|max:255',
         ]);
 
         // 保存

@@ -71,7 +71,7 @@ class FollowController extends Controller
     {
         // バリデーション
         $request->validate([
-            'keyword' => 'required|string|max:255',
+            'keyword' => 'required|unique:follow_keyword|string|max:255',
         ]);
 
         // 保存
