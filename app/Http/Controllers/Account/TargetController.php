@@ -48,11 +48,10 @@ class TargetController extends Controller
         //リダイレクト
         return redirect()->route('target.index');
     }
-    public function delete($target)
+    public function delete($id)
     {
         // target_idと同じ名前をdelete
-        $user = Auth::user();
-        DB::table('follow_target')->where('user_id', $user->id)->where('target_id', $target)->delete();
+        FollowTarget::destroy($id);
 
         return redirect()->route('target.index');
     }

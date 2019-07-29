@@ -18,7 +18,7 @@
 
             @foreach($target as $item)
                 @if($loop->first)<ul class="c-settings__text">@endif
-                    <li><a href="{{ route('target.delete', $item->target_id) }}" class="fas fa-trash"></a>&#x40;{{ $item->target_id }}</li>
+                    <li><a href="{{ route('target.delete', $item->id) }}" class="fas fa-trash"></a>&#x40;{{ $item->target_id }}</li>
                 @if($loop->last)</ul>@endif
             @endforeach
         </div>
