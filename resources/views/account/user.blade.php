@@ -41,7 +41,11 @@
             <h2 class="l-primary__heading fas fa-comment-dots">自動ツイート</h2>
             
             <div class="l-primary__body">
-                <p>ここに設定内容が表示されます。</p>
+                <p class="l-primary__subheading">・ツイート内容</p>
+                <p class="l-primary__desc">{{ $tweet->tweet }}</p>
+
+                <p class="l-primary__subheading">・予約日時</p>
+                <p class="l-primary__desc">{{ $tweet->release }}</p>
             </div>
 
             <div class="l-primary__bottom">
@@ -49,20 +53,22 @@
                 <a href="{{ route('tweet.index', $id) }}" class="c-btn c-btn--blue">実行</a>
             </div>
         </div>
+
+        <a href="http://127.0.0.1:8000/account/2/tweet" class="c-btn c-btn--red">アカウント削除</a>
     </div>
 
     <div class="l-sidebar">
         <div class="l-sidebar__contents">
             <h3 class="l-sidebar__heading">キーワード</h3>
 
-            <a href="{{ route('follow.keywords', $id) }}" class="l-sidebar__bottom fas fa-plus">フォローキーワード追加</a>
-            <a href="{{ route('favorite.keywords', $id) }}" class="l-sidebar__bottom fas fa-plus">いいねキーワード追加</a>
+            <a href="{{ route('follow.keywords') }}" class="l-sidebar__bottom fas fa-plus">フォローキーワード追加</a>
+            <a href="{{ route('favorite.keywords') }}" class="l-sidebar__bottom fas fa-plus">いいねキーワード追加</a>
         </div>
         
         <div class="l-sidebar__contents">
             <h3 class="l-sidebar__heading">ターゲットアカウント</h3>
 
-            <a href="{{ route('target.index', $id) }}" class="l-sidebar__bottom fas fa-plus">ターゲット追加</a>
+            <a href="{{ route('target.index') }}" class="l-sidebar__bottom fas fa-plus">ターゲット追加</a>
         </div>
         
         <div class="l-sidebar__contents">

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\FavoriteKeyword;
 
 class FavoriteController extends Controller
 {
@@ -42,7 +43,7 @@ class FavoriteController extends Controller
         // 2. 自動いいねの実行
         return view('favorite.execute');
     }
-    public function keywords($id)
+    public function keywords()
     {
         // ユーザー情報
         $user = Auth::user();
@@ -55,6 +56,35 @@ class FavoriteController extends Controller
     public function keywordsRegister()
     {
         // いいね用キーワード登録
-        return redirect('favorite.keywords');
+
+        // 1. inputに入力されているかチェック
+        // 2. 入力されていなければ同ページでエラーを表示
+        // 3. 入力されていればバリデーション(項目/重複)
+        // 4. バリデーション通過すれば登録してアカウント一覧ページに遷移
+
+        return view('favorite.keywords');
+    }
+    public function create(Request $request)
+    {
+        // バリデーション
+        $request->validate([
+            'keyword' => 'required|unique:favorite_keyword|string|max:255',
+        ]);
+
+        // 保存
+        $FavoriteKeyword = new FavoriteKeyword;
+        $FavoriteKeyword->user_id = auth()->id();
+        $FavoriteKeyword->timestamps = false;
+        $FavoriteKeyword->fill($request->all())->save();
+
+        //リダイレクト
+        return redirect()->route('favorite.keywords');
+    }
+    public function keywordDelete($id)
+    {
+        // $idをdelete
+        FavoriteKeyword::destroy($id);
+
+        return redirect()->route('favorite.keywords');
     }
 }

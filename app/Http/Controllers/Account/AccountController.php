@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+use App\Account;
+use App\TweetBooking;
 
 class AccountController extends Controller
 {
@@ -33,20 +37,37 @@ class AccountController extends Controller
     }
     public function register()
     {
-        // サービスで使用するアカウントの登録ページ
         return view('account.register');
+    }
+    public function create(Request $request)
+    {
+        // バリデーション
+        $request->validate([
+            'account_id'   => 'required|string|max:255',
+        ]);
+
+        // 保存
+        $account = new Account;
+        $account->user_id = auth()->id();
+        $account->fill($request->all())->save();
+
+        //リダイレクト
+        return redirect()->route('account.index');
     }
     public function user($id)
     {
         // ユーザー情報
         $user = Auth::user();
 
+        // プライマリー : 表示するアカウント
+        $account = DB::table('account')->where('user_id', $user->id)->get()[$id-1];
+        $tweet = TweetBooking::firstOrNew(
+            ['user_id' => $user->id, 'account_id' => $id, 'status' => 0]
+        );
+
         // サイドバー : アカウント一覧
         $accountList = DB::table('account')->where('user_id', $user->id)->get();
 
-        // プライマリー : 表示するアカウント
-        $account = DB::table('account')->where('user_id', $user->id)->get()[$id-1];
-
-        return $account ? view('account.user', compact('id', 'user', 'accountList', 'account')) : redirect('account') ;
+        return $account ? view('account.user', compact('id', 'user', 'account', 'tweet', 'accountList')) : redirect('account') ;
     }
 }

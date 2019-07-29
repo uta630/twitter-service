@@ -44,6 +44,14 @@
         margin-bottom: 12px;
     }
 
+    &__subheading {
+        margin-top: 12px;
+    }
+
+    &__desc {
+        margin-left: 1em;
+    }
+
     &__bottom {
         @include fx-c;
     }

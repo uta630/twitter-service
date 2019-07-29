@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\FollowKeyword;
 
 class FollowController extends Controller
 {
@@ -51,7 +52,7 @@ class FollowController extends Controller
         // 4. 5. 自動フォローの実行
         return view('follow.execute');
     }
-    public function keywords($id)
+    public function keywords()
     {
         // ユーザー情報
         $user = Auth::user();
@@ -64,6 +65,29 @@ class FollowController extends Controller
     public function keywordsRegister()
     {
         // フォロー用キーワード登録
-        return redirect('follow.keywords');
+        return view('follow.keywords');
+    }
+    public function create(Request $request)
+    {
+        // バリデーション
+        $request->validate([
+            'keyword' => 'required|unique:follow_keyword|string|max:255',
+        ]);
+
+        // 保存
+        $followKeyword = new FollowKeyword;
+        $followKeyword->user_id = auth()->id();
+        $followKeyword->timestamps = false;
+        $followKeyword->fill($request->all())->save();
+
+        //リダイレクト
+        return redirect()->route('follow.keywords');
+    }
+    public function keywordDelete($id)
+    {
+        // $idをdelete
+        FollowKeyword::destroy($id);
+
+        return redirect()->route('follow.keywords');
     }
 }

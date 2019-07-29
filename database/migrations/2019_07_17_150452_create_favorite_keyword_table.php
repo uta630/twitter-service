@@ -17,7 +17,6 @@ class CreateFavoriteKeywordTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->string('keyword');
-            $table->timestamp('created_at')->nullable();
         });
     }
 

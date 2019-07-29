@@ -17,8 +17,6 @@ class CreateAccountTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->string('account_id');
-            $table->string('account_name');
-            $table->string('token');
             $table->timestamps();
             $table->softDeletes();
         });

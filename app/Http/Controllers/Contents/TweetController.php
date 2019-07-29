@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\TweetBooking;
 
 class TweetController extends Controller
 {
@@ -16,30 +17,47 @@ class TweetController extends Controller
     
     /*
      * [ 自動ツイート ]
-     * 1. tweetReservationEdit : 自動ツイートの編集
-     * 2. tweetExecute         : 自動ツイートの実行
+     * 1. index       : 予約情報
+     * 2. reservation : 登録 / 更新
+     * 3. execute     : 実行
      */
     public function index($id)
     {
+        /*
+         * 1. index : 予約情報
+         */
         $user = Auth::user();
-        $account = DB::table('account')->where('user_id', $user->id)->get()[$id-1];
+        $account = DB::table('account')->where('user_id', $user->id)->get()[$id-1]; // user_idを使ってアカウント一覧を取得し、配列からid-1番目のものを取得(id番目だと削除した時に順序が異なるため)
 
-        // ツイート履歴(予約を含む)
-        return view('tweet.index', compact('id', 'account'));
+        // firstOrNew() : 予約情報を取得できなければ作成する
+        $tweet = TweetBooking::firstOrNew(
+            ['user_id' => $user->id, 'account_id' => $id, 'status' => 0]
+        );
+        
+        return view('tweet.index', compact('id', 'account', 'tweet'));
     }
-    public function tweetReservation()
+    public function reservation($id, Request $request)
     {
-        // ツイート予約の詳細
-        return view('tweet.reservation');
+        /*
+         * 2. reservation : 登録 / 更新
+         */
+        $user = Auth::user();
+        
+        // updateOrCreate() : 予約情報に一致するモデルがなければ作成する
+        TweetBooking::updateOrCreate(
+            ['user_id' => $user->id, 'account_id' => $id, 'status' => 0],
+            ['tweet' => $request->tweet, 'release' => $request->release]
+        );
+
+        session()->flash('status', '予約情報を更新しました。');
+        
+        return redirect()->route('tweet.index', $id);
     }
-    public function tweetReservationEdit()
+    public function execute()
     {
-        // 1. ツイート予約の編集
-        return view('tweet.reservationEdit');
-    }
-    public function tweetExecute()
-    {
-        // 2. ツイート予約の実行
+        /*
+         * 3. execute : 実行
+         */
         return view('tweet.execute');
     }
 }
