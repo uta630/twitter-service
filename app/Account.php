@@ -12,7 +12,6 @@ class Account extends Model
     protected $fillable = [
         'user_id',
         'account_id',
-        'account_name',
     ];
 
     // 変更できないカラム
