@@ -30,13 +30,6 @@ class TargetController extends Controller
     }
     public function register()
     {
-        // ターゲット登録
-
-        // 1. inputに入力されているかチェック
-        // 2. 入力されていなければ同ページでエラーを表示
-        // 3. 入力されていればバリデーション(項目/重複)
-        // 4. バリデーション通過すれば登録してアカウント一覧ページに遷移
-
         return view('target.register');
     }
     public function create(Request $request)
@@ -53,6 +46,14 @@ class TargetController extends Controller
         $followTarget->fill($request->all())->save();
 
         //リダイレクト
+        return redirect()->route('target.index');
+    }
+    public function delete($target)
+    {
+        // target_idと同じ名前をdelete
+        $user = Auth::user();
+        DB::table('follow_target')->where('user_id', $user->id)->where('target_id', $target)->delete();
+
         return redirect()->route('target.index');
     }
 }

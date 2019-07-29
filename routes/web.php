@@ -27,6 +27,7 @@ Route::get('/account/{id}', 'Account\AccountController@user')->where('id', '[0-9
 // Target
 Route::get('/account/target', 'Account\TargetController@index')->name('target.index');
 Route::post('/account/target/create', 'Account\TargetController@create')->name('target.create');
+Route::get('/account/target/delete/{target}', 'Account\TargetController@delete')->name('target.delete');
 
 // Follow
 Route::get('/account/{id}/follow', 'Contents\FollowController@index')->where('id', '[0-9]+')->name('follow.index');

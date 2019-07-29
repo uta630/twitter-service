@@ -4,7 +4,7 @@
 <div class="l-container">
     @if (session('status'))
         <div class="u-alert u-alert--success" role="alert">
-            {{ session('status') }}
+            {{ var_dump(session('status')) }}
         </div>
     @endif
 
@@ -18,7 +18,7 @@
 
             @foreach($target as $item)
                 @if($loop->first)<ul class="c-settings__text">@endif
-                    <li>&#x40;{{ $item->target_id }}</li>
+                    <li><a href="{{ route('target.delete', $item->target_id) }}" class="fas fa-trash"></a>&#x40;{{ $item->target_id }}</li>
                 @if($loop->last)</ul>@endif
             @endforeach
         </div>

@@ -53,6 +53,8 @@
                 <a href="{{ route('tweet.index', $id) }}" class="c-btn c-btn--blue">実行</a>
             </div>
         </div>
+
+        <a href="http://127.0.0.1:8000/account/2/tweet" class="c-btn c-btn--red">アカウント削除</a>
     </div>
 
     <div class="l-sidebar">
