@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Hash;
 use App\Account;
 use App\TweetBooking;
 
@@ -26,14 +25,11 @@ class AccountController extends Controller
         // ユーザー情報
         $user = Auth::user();
 
-        // 存在チェック
-        $verify = DB::table('account')->where('user_id', $user->id)->exists();
-
         // サイドバー : アカウント一覧
-        $accountList = DB::table('account')->where('user_id', $user->id)->get();
+        $accountList = Account::all()->where('user_id', $user->id);
 
         // サービスで使用するアカウントの一覧
-        return !$verify ? redirect()->route('account.register') : view('account.index', compact('accountList', 'verify'));
+        return $accountList->isEmpty() ? redirect()->route('account.register') : view('account.index', compact('accountList'));
     }
     public function register()
     {
@@ -41,9 +37,9 @@ class AccountController extends Controller
     }
     public function create(Request $request)
     {
-        // バリデーション
+        // バリデーション : account_idをユニークチェック
         $request->validate([
-            'account_id'   => 'required|string|max:255',
+            'account_id' => 'required|unique:account,account_id,'.$request->user_id.',user_id,deleted_at,NULL|string|max:255',
         ]);
 
         // 保存
@@ -59,15 +55,24 @@ class AccountController extends Controller
         // ユーザー情報
         $user = Auth::user();
 
+        Account::all()->find($id);
+
         // プライマリー : 表示するアカウント
-        $account = DB::table('account')->where('user_id', $user->id)->get()[$id-1];
+        $account = DB::table('account')->find($id);
         $tweet = TweetBooking::firstOrNew(
             ['user_id' => $user->id, 'account_id' => $id, 'status' => 0]
         );
 
         // サイドバー : アカウント一覧
-        $accountList = DB::table('account')->where('user_id', $user->id)->get();
+        $accountList = Account::all()->where('user_id', $user->id);
 
         return $account ? view('account.user', compact('id', 'user', 'account', 'tweet', 'accountList')) : redirect('account') ;
+    }
+    public function accountDelete($id)
+    {
+        // アカウント削除
+        Account::find($id)->delete();
+
+        return redirect()->route('account.index');
     }
 }
