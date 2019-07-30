@@ -38,8 +38,10 @@ class AccountController extends Controller
     public function create(Request $request)
     {
         // バリデーション : account_idをユニークチェック
+        //  -> 他のアカウントで実行されても困るので、account_id自体をユニークにする
+        //  -> エラーメッセージで仕様を書いて不具合を回避する
         $request->validate([
-            'account_id' => 'required|unique:account,account_id,'.$request->user_id.',user_id,deleted_at,NULL|string|max:255',
+            'account_id' => 'required|unique:account|string|max:255',
         ]);
 
         // 保存
