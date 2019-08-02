@@ -54,7 +54,13 @@
             </div>
         </div>
 
-        <a href="http://127.0.0.1:8000/account/2/tweet" class="c-btn c-btn--red">アカウント削除</a>
+        <form action="{{ route('account.accountDelete', $account->id) }}" method="post">
+            @csrf
+
+            <div class="c-form__field">
+                <button type="submit" class="c-btn c-btn--red">アカウント削除</button>
+            </div>
+        </form>
     </div>
 
     <div class="l-sidebar">
@@ -76,7 +82,7 @@
 
             @foreach($accountList as $item)
                 @if($loop->first)<ul class="l-sidebar__items">@endif
-                    <li class="l-sidebar__item"><a href="/account/{{ $loop->index+1 }}" class="l-sidebar__link @if($id == $loop->index+1) is-active @endif">&#x40;{{ $item->account_id }}</a></li>
+                    <li class="l-sidebar__item"><a href="/account/{{ $item->id }}" class="l-sidebar__link @if($id == $item->id) is-active @endif">&#x40;{{ $item->account_id }}</a></li>
                 @if($loop->last)</ul>@endif
             @endforeach
 

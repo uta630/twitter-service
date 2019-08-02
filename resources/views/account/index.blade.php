@@ -11,7 +11,7 @@
 
         <div class="p-account__items">
             @foreach($accountList as $account)
-            <a href="{{ route('account.user', $loop->index+1) }}" class="p-account__item c-panel">
+            <a href="{{ route('account.user', $account->id) }}" class="p-account__item c-panel">
                 <img src="/icon.jpg" alt="{{ $account->account_id }}" class="c-panel__thumb">
                 <span class="c-panel__name">&#x40;{{ $account->account_id }}</span>
             </a>

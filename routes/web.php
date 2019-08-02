@@ -23,6 +23,7 @@ Route::get('/account', 'Account\AccountController@index')->name('account.index')
 Route::get('/account/register', 'Account\AccountController@register')->name('account.register');
 Route::post('/account/create', 'Account\AccountController@create')->name('account.create');
 Route::get('/account/{id}', 'Account\AccountController@user')->where('id', '[0-9]+')->name('account.user');
+Route::post('/account/{id}/delete', 'Account\AccountController@accountDelete')->where('id', '[0-9]+')->name('account.accountDelete');
 
 // Target
 Route::get('/account/target', 'Account\TargetController@index')->name('target.index');
