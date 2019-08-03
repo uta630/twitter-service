@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use App\User;
 use App\Account;
 use App\TweetBooking;
 
@@ -74,6 +75,14 @@ class AccountController extends Controller
     {
         // アカウント削除
         Account::find($id)->delete();
+
+        return redirect()->route('account.index');
+    }
+    public function unsubscribe()
+    {
+        // 退会
+        User::find(Auth::user()->id)->delete();
+        // session()->flush(); // セッション削除
 
         return redirect()->route('account.index');
     }
