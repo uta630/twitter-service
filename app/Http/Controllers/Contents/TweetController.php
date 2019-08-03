@@ -43,6 +43,12 @@ class TweetController extends Controller
          */
         $user = Auth::user();
         
+        // バリデーション
+        $request->validate([
+            'tweet' => 'required|string|max:140',
+            'release' => 'required|string|max:140|date_format:Y-m-d H:i:s',
+        ]);
+        
         // updateOrCreate() : 予約情報に一致するモデルがなければ作成する
         TweetBooking::updateOrCreate(
             ['user_id' => $user->id, 'account_id' => $id, 'status' => 0],

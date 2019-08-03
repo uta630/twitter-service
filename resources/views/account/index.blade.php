@@ -9,6 +9,8 @@
             </div>
         @endif
 
+        <p class="p-account__heading">{{ $user->name }}</p>
+
         <div class="p-account__items">
             @foreach($accountList as $account)
             <a href="{{ route('account.user', $account->id) }}" class="p-account__item c-panel">

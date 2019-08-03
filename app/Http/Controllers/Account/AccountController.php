@@ -30,7 +30,7 @@ class AccountController extends Controller
         $accountList = Account::all()->where('user_id', $user->id);
 
         // サービスで使用するアカウントの一覧
-        return $accountList->isEmpty() ? redirect()->route('account.register') : view('account.index', compact('accountList'));
+        return $accountList->isEmpty() ? redirect()->route('account.register') : view('account.index', compact('accountList', 'user'));
     }
     public function register()
     {

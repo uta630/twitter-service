@@ -13,16 +13,6 @@
 
         <h2 class="c-settings__heading fas fa-heart">自動いいねキーワード登録</h2>
 
-        <div class="c-settings__field">
-            <h3 class="c-settings__title c-settings__favorite">登録されているキーワード</h3>
-            
-            @foreach($favoriteKeywords as $item)
-                @if($loop->first)<ul class="l-sidebar__items">@endif
-                    <li><a href="{{ route('favorite.keywordDelete', $item->id) }}" class="fas fa-trash"></a>{{ $item->keyword }}</li>
-                @if($loop->last)</ul>@endif
-            @endforeach
-        </div>
-
         <div class="c-form__field">
             <label for="keyword" class="c-form__label">登録するキーワード</label>
 
@@ -35,6 +25,16 @@
                     </span>
                 @enderror
             </div>
+        </div>
+
+        <div class="c-settings__field">
+            <h3 class="c-settings__title c-settings__favorite">登録されているキーワード</h3>
+            
+            @foreach($favoriteKeywords as $item)
+                @if($loop->first)<ul class="c-settings__items">@endif
+                    <li class="c-settings__item"><a href="{{ route('favorite.keywordDelete', $item->id) }}" class="fas fa-trash-alt"></a>{{ $item->keyword }}</li>
+                @if($loop->last)</ul>@endif
+            @endforeach
         </div>
 
         <div class="c-settings__bottom">

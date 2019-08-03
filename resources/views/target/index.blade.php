@@ -17,8 +17,8 @@
             <h3 class="c-settings__title c-settings__account">ターゲット一覧</h3>
 
             @foreach($target as $item)
-                @if($loop->first)<ul class="c-settings__text">@endif
-                    <li><a href="{{ route('target.delete', $item->id) }}" class="fas fa-trash"></a>&#x40;{{ $item->target_id }}</li>
+                @if($loop->first)<ul class="c-settings__items">@endif
+                    <li class="c-settings__item"><a href="{{ route('target.delete', $item->id) }}" class="fas fa-trash-alt"></a>&#x40;{{ $item->target_id }}</li>
                 @if($loop->last)</ul>@endif
             @endforeach
         </div>

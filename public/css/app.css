@@ -6990,6 +6990,13 @@ button {
   border-bottom: 1px solid #717171;
 }
 
+@media screen and (max-width: 767px) {
+  .c-settings__heading {
+    padding-bottom: 12px;
+    font-size: 20px;
+  }
+}
+
 .c-settings__heading::before {
   margin-right: 12px;
   vertical-align: middle;
@@ -7004,6 +7011,40 @@ button {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
+}
+
+.c-settings__text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c-settings__items {
+  overflow-y: scroll;
+  height: 280px;
+  padding: 12px;
+  border: 1px solid #717171;
+}
+
+.c-settings__item {
+  overflow: hidden;
+  width: 100%;
+  line-height: 1.6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c-settings__item a {
+  margin-right: 8px;
+}
+
+.c-settings__item a.fas.fa-trash-alt {
+  color: #e3342f;
+}
+
+.c-settings__item a.fas.fa-trash-alt:hover {
+  color: #c51f1a;
 }
 
 .c-settings__bottom {
@@ -7206,6 +7247,15 @@ button {
 
 .p-jumbotron__link {
   margin: 0 12px;
+}
+
+.p-account__heading {
+  margin-bottom: 24px;
+  padding-left: 12px;
+  line-height: 2;
+  color: #fff;
+  font-size: 24px;
+  border-left: 4px solid #fff;
 }
 
 .p-account__items {
