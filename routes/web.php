@@ -20,6 +20,7 @@ Auth::routes();
 
 // Account
 Route::get('/account', 'Account\AccountController@index')->name('account.index');
+Route::post('/account/unsubscribe', 'Account\AccountController@unsubscribe')->name('account.unsubscribe');
 Route::get('/account/register', 'Account\AccountController@register')->name('account.register');
 Route::post('/account/create', 'Account\AccountController@create')->name('account.create');
 Route::get('/account/{id}', 'Account\AccountController@user')->where('id', '[0-9]+')->name('account.user');

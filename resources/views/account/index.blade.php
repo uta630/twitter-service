@@ -25,6 +25,14 @@
             @endif
             @endforeach
         </div>
+
+        <form action="{{ route('account.unsubscribe') }}" method="post">
+            @csrf
+
+            <div class="c-form__field">
+                <button type="submit" class="c-btn c-btn--red">退会</button>
+            </div>
+        </form>
     </div>
 </div>
 @endsection
