@@ -35,8 +35,9 @@ class TargetController extends Controller
     public function create(Request $request)
     {
         // バリデーション
+        $user = Auth::user();
         $request->validate([
-            'target_id' => 'required|unique:follow_target|string|max:255',
+            'target_id' => 'required|unique:follow_target,target_id,NULL,id,user_id,'.$user->id.'|string|max:255',
         ]);
 
         // 保存

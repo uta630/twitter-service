@@ -46,7 +46,7 @@ class TweetController extends Controller
         // バリデーション
         $request->validate([
             'tweet' => 'required|string|max:140',
-            'release' => 'required|string|max:140|date_format:Y-m-d H:i:s',
+            'release' => 'required|string|date_format:Y-m-d H:i:s',
         ]);
         
         // updateOrCreate() : 予約情報に一致するモデルがなければ作成する

@@ -82,7 +82,6 @@ class AccountController extends Controller
     {
         // 退会
         User::find(Auth::user()->id)->delete();
-        // session()->flush(); // セッション削除
 
         return redirect()->route('account.index');
     }
