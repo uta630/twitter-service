@@ -23,11 +23,17 @@
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
 
     transition: .1s;
-    transition-property: background, box-shadow;
+    transition-property: opacity, background, box-shadow;
     cursor: pointer;
 
     @include mq-down('md'){
         box-sizing: border-box;
+    }
+
+    &:disabled {
+        opacity: .5;
+
+        box-shadow: none;
     }
     
     &:hover {

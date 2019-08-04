@@ -28,4 +28,10 @@ $sp-column: 2;
             flex-basis: percentage((100 - ($sp-column*2))/100 / $sp-column);
         }
     }
+
+    &__bottom {
+        display: flex;
+        
+        margin-top: 42px;
+    }
 }

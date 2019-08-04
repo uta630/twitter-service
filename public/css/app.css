@@ -6982,6 +6982,37 @@ button {
   text-decoration: none;
 }
 
+.c-form__checkbox {
+  position: relative;
+  margin: 4px;
+}
+
+.c-form__checkbox::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  vertical-align: middle;
+  border: 1px solid #000;
+}
+
+.c-form__checkbox.is-active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 5px;
+  width: 6px;
+  height: 12px;
+  margin: auto;
+  border: solid red;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
 .c-settings {
   background: #fff;
   width: 100%;
@@ -7074,8 +7105,8 @@ button {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
   -webkit-transition: 0.1s;
   transition: 0.1s;
-  -webkit-transition-property: background, box-shadow;
-  transition-property: background, box-shadow;
+  -webkit-transition-property: opacity, background, box-shadow;
+  transition-property: opacity, background, box-shadow;
   cursor: pointer;
 }
 
@@ -7094,6 +7125,11 @@ button {
   .c-btn {
     box-sizing: border-box;
   }
+}
+
+.c-btn:disabled {
+  opacity: 0.5;
+  box-shadow: none;
 }
 
 .c-btn:hover {
@@ -7194,6 +7230,28 @@ button {
   }
 }
 
+.c-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.c-overlay__inner {
+  -webkit-box-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+}
+
 /* ==========================================================================
    Project
    ========================================================================== */
@@ -7279,6 +7337,12 @@ button {
   .p-account__item {
     flex-basis: 48%;
   }
+}
+
+.p-account__bottom {
+  display: -webkit-box;
+  display: flex;
+  margin-top: 42px;
 }
 
 /* ==========================================================================

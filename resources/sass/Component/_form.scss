@@ -154,4 +154,46 @@
             text-decoration: none;
         }
     }
+
+    &__checkbox {
+        position: relative;
+
+        margin: 4px;
+
+        &::before {
+            content: '';
+
+            display: inline-block;
+
+            width: 16px;
+            height: 16px;
+
+            margin-right: 6px;
+
+            vertical-align: middle;
+
+            border: 1px solid #000;
+        }
+
+        &.is-active::after {
+            content: '';
+
+            display: block;
+
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 5px;
+
+            width: 6px;
+            height: 12px;
+            
+            margin: auto;
+
+            border: solid red;
+            border-width: 0 2px 2px 0;
+
+            transform: rotate(45deg);
+        }
+    }
 }

@@ -28,13 +28,30 @@
             @endforeach
         </div>
 
-        <form action="{{ route('account.unsubscribe') }}" method="post">
-            @csrf
-
-            <div class="c-form__field">
-                <button type="submit" class="c-btn c-btn--red">退会</button>
-            </div>
-        </form>
+        <div class="p-account__bottom">
+            <div class="c-btn c-btn--red js-overlay-open">退会</div>
+        </div>
     </div>
 </div>
+
+<form action="{{ route('account.unsubscribe') }}" method="post">
+    @csrf
+
+    <div class="c-overlay js-overlay-target">                
+        <div class="c-overlay__inner">
+            <div class="c-form">
+                <h2 class="c-form__heading">退会する</h2>
+
+                <div class="c-settings__field">
+                    <p class="c-form__invalid-feedback c-form__checkbox js-checkbox">この操作は取り消すことができません。</p>
+                </div>
+                
+                <div class="c-settings__bottom">
+                    <div class="c-btn js-overlay-close">閉じる</div>
+                    <button type="submit" class="c-btn c-btn--red js-checkbox-target" disabled>退会</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 @endsection
