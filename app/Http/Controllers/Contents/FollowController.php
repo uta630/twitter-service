@@ -70,8 +70,9 @@ class FollowController extends Controller
     public function create(Request $request)
     {
         // バリデーション
+        $user = Auth::user();
         $request->validate([
-            'keyword' => 'required|unique:follow_keyword|string|max:255',
+            'keyword' => 'required|unique:follow_keyword,keyword,NULL,id,user_id,'.$user->id.'|string|max:255',
         ]);
 
         // 保存
