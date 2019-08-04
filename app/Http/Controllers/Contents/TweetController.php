@@ -16,16 +16,10 @@ class TweetController extends Controller
     }
     
     /*
-     * [ 自動ツイート ]
-     * 1. index       : 予約情報
-     * 2. reservation : 登録 / 更新
-     * 3. execute     : 実行
+     * 自動ツイート設定ページ
      */
     public function index($id)
     {
-        /*
-         * 1. index : 予約情報
-         */
         $user = Auth::user();
         $account = DB::table('account')->find($id);
 
@@ -36,15 +30,14 @@ class TweetController extends Controller
         
         return view('tweet.index', compact('id', 'account', 'tweet'));
     }
+    /*
+     * 自動ツイートの予約処理
+     */
     public function reservation($id, Request $request)
     {
-        /*
-         * 2. reservation : 登録 / 更新
-         */
         $user = Auth::user();
         $account = DB::table('account')->find($id);
         
-        // バリデーション
         $request->validate([
             'tweet' => 'required|string|max:140',
             'release' => 'required|string|date_format:Y-m-d H:i:s',
@@ -60,11 +53,11 @@ class TweetController extends Controller
         
         return redirect()->route('tweet.index', $id);
     }
+    /*
+     * 自動ツイートを予約内容で実行
+     */
     public function execute()
     {
-        /*
-         * 3. execute : 実行
-         */
         return view('tweet.execute');
     }
 }

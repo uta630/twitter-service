@@ -16,77 +16,77 @@ class FollowController extends Controller
     }
     
     /*
-     * [ 自動フォロー ]
-     * -  followStart   : 実行
-     * 1. followerPick  : ターゲットリストからアカウントをピックアップ
-     * 2. followerPick  : ピックアップしたアカウントのフォロワーを全取得
-     * 3. followerSort  : フォロワーを精査してリスト化
-     * 4. followExecute : 生成したリストを順にフォロー
-     * 5. 1に戻る
+     * 自動フォロー設定ページ
      */
     public function index($id)
     {
         $user = Auth::user();
         $account = DB::table('account')->find($id);
 
-        // フォロー情報の表示
         return view('follow.index', compact('id', 'account'));
     }
+
+    /*
+     * 自動フォローのスタート
+     */
     public function start()
     {
-        // - 自動フォローの実行
         return view('follow.start');
     }
+    /*
+     * 自動フォローのターゲットリストを生成
+     */
     public function pick()
     {
-        // 1. 2. アカウントのピックしてフォロワー取得
         return view('follow.pick');
     }
+    /*
+     * 自動フォローするフォロワーをターゲットリストからソート
+     */
     public function sort()
     {
-        // 3. 取得したフォロワーを精査
         return view('follow.sort');
     }
+    /*
+     * 自動フォローの実行
+     */
     public function execute()
     {
-        // 4. 5. 自動フォローの実行
         return view('follow.execute');
     }
+
+    /*
+     * 自動フォローのキーワード一覧ページ
+     */
     public function keywords()
     {
-        // ユーザー情報
         $user = Auth::user();
-
-        // フォロー用キーワード一覧
         $followKeywords = DB::table('follow_keyword')->where('user_id', $user->id)->get();
 
         return view('follow.keywords', compact('id', 'user', 'followKeywords'));
     }
-    public function keywordsRegister()
-    {
-        // フォロー用キーワード登録
-        return view('follow.keywords');
-    }
+    /*
+     * 自動フォローのキーワードの登録処理
+     */
     public function create(Request $request)
     {
-        // バリデーション
         $user = Auth::user();
         $request->validate([
             'keyword' => 'required|unique:follow_keyword,keyword,NULL,id,user_id,'.$user->id.'|string|max:255',
         ]);
 
-        // 保存
         $followKeyword = new FollowKeyword;
         $followKeyword->user_id = auth()->id();
         $followKeyword->timestamps = false;
         $followKeyword->fill($request->all())->save();
 
-        //リダイレクト
         return redirect()->route('follow.keywords');
     }
+    /*
+     * 自動フォローのキーワードの削除処理
+     */
     public function keywordDelete($id)
     {
-        // $idをdelete
         FollowKeyword::destroy($id);
 
         return redirect()->route('follow.keywords');

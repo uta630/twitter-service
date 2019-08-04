@@ -16,42 +16,42 @@ class TargetController extends Controller
     }
     
     /*
-     * ターゲットとなるアカウント
+     * ターゲットとなるTwitterアカウント一覧ページ
      */
     public function index()
     {
-        // ユーザー情報
         $user = Auth::user();
-
-        // ターゲット一覧
         $target = DB::table('follow_target')->where('user_id', $user->id)->get();
 
         return view('target.index', compact('user', 'target'));
     }
+
+    /*
+     * ターゲットとなるTwitterアカウントの登録処理
+     */
     public function register()
     {
         return view('target.register');
     }
     public function create(Request $request)
     {
-        // バリデーション
         $user = Auth::user();
         $request->validate([
             'target_id' => 'required|unique:follow_target,target_id,NULL,id,user_id,'.$user->id.'|string|max:255',
         ]);
 
-        // 保存
         $followTarget = new FollowTarget;
         $followTarget->user_id = auth()->id();
         $followTarget->timestamps = false;
         $followTarget->fill($request->all())->save();
 
-        //リダイレクト
         return redirect()->route('target.index');
     }
+    /*
+     * ターゲットとなるTwitterアカウントの削除処理
+     */
     public function delete($id)
     {
-        // $idをdelete
         FollowTarget::destroy($id);
 
         return redirect()->route('target.index');
