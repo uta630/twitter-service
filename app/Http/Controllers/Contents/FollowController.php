@@ -27,7 +27,7 @@ class FollowController extends Controller
     public function index($id)
     {
         $user = Auth::user();
-        $account = DB::table('account')->where('user_id', $user->id)->get()[$id-1];
+        $account = DB::table('account')->find($id);
 
         // フォロー情報の表示
         return view('follow.index', compact('id', 'account'));

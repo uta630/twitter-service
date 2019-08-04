@@ -27,11 +27,11 @@ class TweetController extends Controller
          * 1. index : 予約情報
          */
         $user = Auth::user();
-        $account = DB::table('account')->where('user_id', $user->id)->get()[$id-1]; // user_idを使ってアカウント一覧を取得し、配列からid-1番目のものを取得(id番目だと削除した時に順序が異なるため)
+        $account = DB::table('account')->find($id);
 
         // firstOrNew() : 予約情報を取得できなければ作成する
         $tweet = TweetBooking::firstOrNew(
-            ['user_id' => $user->id, 'account_id' => $id, 'status' => 0]
+            ['user_id' => $user->id, 'account_id' => $account->account_id, 'status' => 0]
         );
         
         return view('tweet.index', compact('id', 'account', 'tweet'));
@@ -42,6 +42,7 @@ class TweetController extends Controller
          * 2. reservation : 登録 / 更新
          */
         $user = Auth::user();
+        $account = DB::table('account')->find($id);
         
         // バリデーション
         $request->validate([
@@ -51,7 +52,7 @@ class TweetController extends Controller
         
         // updateOrCreate() : 予約情報に一致するモデルがなければ作成する
         TweetBooking::updateOrCreate(
-            ['user_id' => $user->id, 'account_id' => $id, 'status' => 0],
+            ['user_id' => $user->id, 'account_id' => $account->account_id, 'status' => 0],
             ['tweet' => $request->tweet, 'release' => $request->release]
         );
 

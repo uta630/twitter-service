@@ -23,7 +23,7 @@ class FavoriteController extends Controller
     public function index($id)
     {
         $user = Auth::user();
-        $account = DB::table('account')->where('user_id', $user->id)->get()[$id-1];
+        $account = DB::table('account')->find($id);
 
         // いいね情報
         return view('favorite.index', compact('id', 'account'));
