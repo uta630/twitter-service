@@ -6922,6 +6922,11 @@ button {
   width: 182px;
 }
 
+.c-form__invalid-feedback {
+  color: #e3342f;
+  font-size: 12px;
+}
+
 .c-form__check-input {
   display: none;
 }
