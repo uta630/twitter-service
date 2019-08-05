@@ -54,13 +54,11 @@
             </div>
         </div>
 
-        <form action="{{ route('account.accountDelete', $account->id) }}" method="post">
-            @csrf
-
+        <div class="l-primary__bottom">
             <div class="c-form__field">
-                <button type="submit" class="c-btn c-btn--red">アカウント削除</button>
+                <div class="c-btn c-btn--red js-overlay-open">アカウント削除</div>
             </div>
-        </form>
+        </div>
     </div>
 
     <div class="l-sidebar">
@@ -90,4 +88,25 @@
         </div>
     </div>
 </div>
+
+<form action="{{ route('account.unsubscribe') }}" method="post">
+    @csrf
+
+    <div class="c-overlay js-overlay-target">                
+        <div class="c-overlay__inner">
+            <div class="c-form">
+                <h2 class="c-form__heading">アカウントを削除する</h2>
+
+                <div class="c-settings__field">
+                    <p class="c-form__invalid-feedback c-form__checkbox js-checkbox">この操作は取り消すことができません。</p>
+                </div>
+                
+                <div class="c-settings__bottom">
+                    <div class="c-btn js-overlay-close">閉じる</div>
+                    <button type="submit" class="c-btn c-btn--red js-checkbox-target" disabled>アカウント削除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 @endsection

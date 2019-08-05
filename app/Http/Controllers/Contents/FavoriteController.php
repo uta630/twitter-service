@@ -14,75 +14,72 @@ class FavoriteController extends Controller
     {
         $this->middleware('auth');
     }
+
     /*
-     * [ 自動いいね ]
-     * -  favoriteStart  : 実行
-     * 1. favoriteerSort : フォロワーを精査してリスト化
-     * 2. followExecute  : 生成したリストを順にフォロー
+     * 自動いいね設定ページ
      */
     public function index($id)
     {
         $user = Auth::user();
-        $account = DB::table('account')->where('user_id', $user->id)->get()[$id-1];
+        $account = DB::table('account')->find($id);
 
-        // いいね情報
         return view('favorite.index', compact('id', 'account'));
     }
+
+    /*
+     * 自動いいねのスタート
+     */
     public function start()
     {
-        // - 自動いいねの実行
         return view('favorite.start');
     }
+    /*
+     * 自動いいねするツイートのソート
+     */
     public function sort()
     {
-        // 1. いいねの精査
         return view('favorite.sort');
     }
+    /*
+     * 自動いいねの実行
+     */
     public function execute()
     {
-        // 2. 自動いいねの実行
         return view('favorite.execute');
     }
+
+    /*
+     * 自動いいねのキーワード一覧ページ
+     */
     public function keywords()
     {
-        // ユーザー情報
         $user = Auth::user();
-
-        // いいね用キーワード一覧
         $favoriteKeywords = DB::table('favorite_keyword')->where('user_id', $user->id)->get();
 
         return view('favorite.keywords', compact('id', 'user', 'favoriteKeywords'));
     }
-    public function keywordsRegister()
-    {
-        // いいね用キーワード登録
-
-        // 1. inputに入力されているかチェック
-        // 2. 入力されていなければ同ページでエラーを表示
-        // 3. 入力されていればバリデーション(項目/重複)
-        // 4. バリデーション通過すれば登録してアカウント一覧ページに遷移
-
-        return view('favorite.keywords');
-    }
+    /*
+     * 自動いいねのキーワードの登録処理
+     */
     public function create(Request $request)
     {
-        // バリデーション
+        $user = Auth::user();
         $request->validate([
-            'keyword' => 'required|unique:favorite_keyword|string|max:255',
+            'keyword' => 'required|unique:favorite_keyword,keyword,NULL,id,user_id,'.$user->id.'|string|max:255',
         ]);
 
-        // 保存
         $FavoriteKeyword = new FavoriteKeyword;
         $FavoriteKeyword->user_id = auth()->id();
         $FavoriteKeyword->timestamps = false;
         $FavoriteKeyword->fill($request->all())->save();
 
-        //リダイレクト
         return redirect()->route('favorite.keywords');
     }
+    /*
+     * 自動いいねのキーワードの削除処理
+     */
     public function keywordDelete($id)
     {
-        // $idをdelete
         FavoriteKeyword::destroy($id);
 
         return redirect()->route('favorite.keywords');

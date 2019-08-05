@@ -1,7 +1,17 @@
 $pc-column: 3;
 $sp-column: 2;
 .p-account {
-    &__heading {}
+    &__heading {
+        margin-bottom: 24px;
+        padding-left: 12px;
+
+        line-height: 2;
+        color: #fff;
+        font-size: 24px;
+
+        border-left: 4px solid #fff;
+    }
+    
     &__items {
         display: flex;
         flex-wrap: wrap;
@@ -17,5 +27,11 @@ $sp-column: 2;
         @include mq-down('md') {
             flex-basis: percentage((100 - ($sp-column*2))/100 / $sp-column);
         }
+    }
+
+    &__bottom {
+        display: flex;
+        
+        margin-top: 42px;
     }
 }

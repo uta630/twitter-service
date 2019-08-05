@@ -31,12 +31,6 @@ class AccountTableSeeder extends Seeder
                 'created_at'   => Carbon::now(),
                 'updated_at'   => Carbon::now(),
             ],
-            [
-                'user_id'      => 2,
-                'account_id'   => '____uta_____',
-                'created_at'   => Carbon::now(),
-                'updated_at'   => Carbon::now(),
-            ],
         ]);
     }
 }

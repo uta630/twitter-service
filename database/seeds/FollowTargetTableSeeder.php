@@ -29,10 +29,6 @@ class FollowTargetTableSeeder extends Seeder
                 'user_id'    => 1,
                 'target_id'  => 'takapon_jp',
             ],
-            [
-                'user_id'    => 3,
-                'target_id'  => 'ochyai',
-            ]
         ]);
     }
 }

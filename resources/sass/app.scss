@@ -5,7 +5,7 @@
 @import './node_modules/css-reset-and-normalize/scss/reset-and-normalize';
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Icons : fontawesome
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
@@ -34,6 +34,7 @@
 @import 'Component/_settings';
 @import 'Component/_button';
 @import 'Component/_panel';
+@import 'Component/_overlay';
 
 /* ==========================================================================
    Project

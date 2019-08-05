@@ -13,16 +13,6 @@
 
         <h2 class="c-settings__heading fas fa-heart">ターゲットアカウント</h2>
 
-        <div class="c-settings__field">
-            <h3 class="c-settings__title c-settings__account">ターゲット一覧</h3>
-
-            @foreach($target as $item)
-                @if($loop->first)<ul class="c-settings__text">@endif
-                    <li><a href="{{ route('target.delete', $item->id) }}" class="fas fa-trash"></a>&#x40;{{ $item->target_id }}</li>
-                @if($loop->last)</ul>@endif
-            @endforeach
-        </div>
-
         <div class="c-form__field">
             <label for="target_id" class="c-form__label">ターゲット</label>
 
@@ -37,6 +27,15 @@
             </div>
         </div>
 
+        <div class="c-settings__field">
+            <h3 class="c-settings__title c-settings__account">ターゲット一覧</h3>
+
+            @foreach($target as $item)
+                @if($loop->first)<ul class="c-settings__items">@endif
+                    <li class="c-settings__item"><a href="{{ route('target.delete', $item->id) }}" class="fas fa-trash-alt"></a>&#x40;{{ $item->target_id }}</li>
+                @if($loop->last)</ul>@endif
+            @endforeach
+        </div>
         <div class="c-settings__bottom">
             <a href="{{ route('account.index') }}" class="c-btn">一覧へ</a>
             <button type="submit" class="c-btn c-btn--blue">登録</button>
