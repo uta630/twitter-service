@@ -17,8 +17,8 @@ class TwitterController extends Controller
     public function handleProviderCallback(){
         try {
             $twitterUser = Socialite::driver('twitter')->user();
-        } catch (Exception $e) {
-            return redirect('auth/twitter');
+        } catch (\Exception $e) {
+            return redirect('/account');
         }
         // 各自ログイン処理
         // 例
