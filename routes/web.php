@@ -27,9 +27,8 @@ Route::get('/account/{id}', 'Account\AccountController@user')->where('id', '[0-9
 Route::post('/account/{id}/delete', 'Account\AccountController@accountDelete')->where('id', '[0-9]+')->name('account.accountDelete');
 
 // Twitter Link
-Route::get('auth/twitter', 'Auth\TwitterController@redirectToProvider'); // ログインURL
-Route::get('auth/twitter/callback', 'Auth\TwitterController@handleProviderCallback'); // コールバックURL
-Route::get('auth/twitter/logout', 'Auth\TwitterController@logout'); // ログアウトURL
+Route::get('auth/twitter', 'Auth\TwitterController@redirectLinkPage'); // ログインURL
+Route::get('auth/twitter/callback', 'Auth\TwitterController@handleCallback'); // コールバックURL
 
 // Target
 Route::get('/account/target', 'Account\TargetController@index')->name('target.index');
