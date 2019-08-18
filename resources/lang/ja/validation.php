@@ -149,7 +149,7 @@ return [
         'password' => 'パスワード',
         'password_confirmation' => 'パスワード再入力',
         'target_id' => 'ターゲットID',
-        'account_id' => 'アカウントID',
+        'twitter_id' => 'アカウントID',
         'keyword' => 'キーワード',
         'tweet' => 'ツイート内容',
         'release' => '予約日時',

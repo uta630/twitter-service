@@ -11,7 +11,7 @@ class TweetBooking extends Model
     // 変更できるカラム
     protected $fillable = [
         'user_id',
-        'account_id',
+        'twitter_id',
         'tweet',
         'release',
         'status',

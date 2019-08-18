@@ -41,7 +41,7 @@ class AccountController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-            'account_id' => 'required|unique:account|string|max:255', // ユニークのエラー文言は「他のユーザーが利用中です」で記載
+            'twitter_id' => 'required|unique:account|string|max:255', // ユニークのエラー文言は「他のユーザーが利用中です」で記載
         ]);
 
         $account = new Account;
@@ -62,7 +62,7 @@ class AccountController extends Controller
         // プライマリーエリア : 表示するアカウント
         $account = DB::table('account')->find($id);
         $tweet = TweetBooking::firstOrNew(
-            ['user_id' => $user->id, 'account_id' => $id, 'status' => 0]
+            ['user_id' => $user->id, 'twitter_id' => $id, 'status' => 0]
         );
 
         // サイドバーエリア : アカウント一覧

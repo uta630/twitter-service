@@ -9,7 +9,7 @@
     @endif
 
     <div class="l-primary">
-        <h1 class="l-primary__title">&#x40;{{ $account->account_id }}</h1>
+        <h1 class="l-primary__title">&#x40;{{ $account->twitter_id }}</h1>
 
         <div class="l-primary__contents">
             <h2 class="l-primary__heading fas fa-user-plus">自動フォロー</h2>
@@ -80,7 +80,7 @@
 
             @foreach($accountList as $item)
                 @if($loop->first)<ul class="l-sidebar__items">@endif
-                    <li class="l-sidebar__item"><a href="/account/{{ $item->id }}" class="l-sidebar__link @if($id == $item->id) is-active @endif">&#x40;{{ $item->account_id }}</a></li>
+                    <li class="l-sidebar__item"><a href="/account/{{ $item->id }}" class="l-sidebar__link @if($id == $item->id) is-active @endif">&#x40;{{ $item->twitter_id }}</a></li>
                 @if($loop->last)</ul>@endif
             @endforeach
 

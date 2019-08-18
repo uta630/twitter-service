@@ -16,7 +16,7 @@ class CreateUnfollowListTable extends Migration
         Schema::create('unfollow_list', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
-            $table->string('account_id');
+            $table->string('twitter_id');
         });
     }
 

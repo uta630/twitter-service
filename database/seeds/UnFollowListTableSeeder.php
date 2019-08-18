@@ -13,7 +13,7 @@ class UnFollowListTableSeeder extends Seeder
     {
         DB::table('unfollow_list')->insert([
             'user_id'    => 1,
-            'account_id' => 'MomentsJapan',
+            'twitter_id' => 'MomentsJapan',
         ]);
     }
 }

@@ -15,19 +15,19 @@ class AccountTableSeeder extends Seeder
         DB::table('account')->insert([
             [
                 'user_id'      => 1,
-                'account_id'   => '____uta_____',
+                'twitter_id'   => '____uta_____',
                 'created_at'   => Carbon::now(),
                 'updated_at'   => Carbon::now(),
             ],
             [
                 'user_id'      => 1,
-                'account_id'   => 'uta_mr_kiss',
+                'twitter_id'   => 'uta_mr_kiss',
                 'created_at'   => Carbon::now(),
                 'updated_at'   => Carbon::now(),
             ],
             [
                 'user_id'      => 2,
-                'account_id'   => 'twitter',
+                'twitter_id'   => 'twitter',
                 'created_at'   => Carbon::now(),
                 'updated_at'   => Carbon::now(),
             ],
