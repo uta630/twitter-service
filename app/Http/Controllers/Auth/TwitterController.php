@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Account;
 
 class TwitterController extends Controller
@@ -113,11 +114,10 @@ class TwitterController extends Controller
         if ( isset( $_GET['oauth_token'] ) || isset($_GET["oauth_verifier"]) ){
             // 許可
             $this->handleAllowCallback();
+            return redirect()->route('account.index');
         } elseif ( isset( $_GET["denied"] ) ){
             // キャンセル
             $this->handleCancelCallback();
-        } else {
-            // その他
             return redirect()->route('account.register');
         }
     }
@@ -180,17 +180,21 @@ class TwitterController extends Controller
         $query = [];
         parse_str( $response, $query );
 
-        // 連携したアカウントの情報をDBに登録
-        $user    = Auth::user();
-        $account = new Account;
-        $account->user_id            = $user->id;
-        $account->twitter_id         = $query["screen_name"];
-        $account->twitter_user_id    = $query["user_id"];
-        $account->oauth_token        = $query["oauth_token"];
-        $account->oauth_token_secret = $query["oauth_token_secret"];
-        $account->save();
+        // 重複するtwitter_idがあるか確認
+        $target = Account::where('twitter_id', $query["screen_name"])->first();
 
-        return redirect()->route('account.index');
+        if(!isset($target)){
+            $user    = Auth::user();
+            $account = new Account;
+            $account->user_id            = $user->id;
+            $account->twitter_id         = $query["screen_name"];
+            $account->twitter_user_id    = $query["user_id"];
+            $account->oauth_token        = $query["oauth_token"];
+            $account->oauth_token_secret = $query["oauth_token_secret"];
+            $account->save();
+        } else {
+            session()->flash('status', '登録済みのアカウントです。');
+        }
     }
 
     /* 
@@ -198,7 +202,8 @@ class TwitterController extends Controller
      */
     public function handleCancelCallback()
     {
-        return redirect()->route('account.index');
+        session()->flash('status', '認証をキャンセルしました。');
+        // return redirect()->route('account.index');
     }
 
     /* 
