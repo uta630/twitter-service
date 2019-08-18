@@ -4,41 +4,40 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Account;
 use Socialite;
 
 class TwitterController extends Controller
 {
-
-    // ログイン
-    public function redirectToProvider(){
+    public function redirectToProvider()
+    {
         return Socialite::driver('twitter')->redirect();
     }
 
-    // コールバック
-    public function handleProviderCallback(){
+    public function handleProviderCallback()
+    {
         try {
             $twitterUser = Socialite::driver('twitter')->user();
         } catch (\Exception $e) {
-            return redirect('/account');
+            return redirect()->route('account.register');
         }
-        // 各自ログイン処理
-        // 例
-        // $user = User::where('auth_id', $twitterUser->id)->first();
-        // if (!$user) {
-        //     $user = User::create([
-        //         'auth_id' => $twitterUser->id
-        //   ]);
-        // }
-        // Auth::login($user);
-        return redirect('/account');
+
+        // TODO : twitter id の重複チェック
+        // $request->validate([
+        //     'twitter_id' => 'required|unique:account|string|max:255', // ユニークのエラー文言は「登録済みのアカウントです」で記載
+        // ]);
+
+        $account = new Account;
+        $account->user_id = Auth::user()->id;
+        $account->twitter_id = $twitterUser->getNickname();
+        $account->save();
+
+        return redirect()->route('account.index');
     }
 
-    // ログアウト
     public function logout()
     {
-        // 各自ログアウト処理
-        // 例
-        Auth::logout();
-        return redirect('/account');
+        // Auth::logout();
+        return redirect()->route('account.index');
     }
 }
