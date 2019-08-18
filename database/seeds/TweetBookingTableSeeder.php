@@ -15,7 +15,7 @@ class TweetBookingTableSeeder extends Seeder
         DB::table('tweet_booking')->insert([
             [
                 'user_id'    => 1,
-                'account_id' => 1,
+                'twitter_id' => 1,
                 'tweet'      => 'ツイートする内容がここに入ります。140文字以内などの制約をコントローラで守らせます。',
                 'release'    => '2020-01-31',
                 'status'     => false,
@@ -23,7 +23,7 @@ class TweetBookingTableSeeder extends Seeder
             ],
             [
                 'user_id'    => 1,
-                'account_id' => 2,
+                'twitter_id' => 2,
                 'tweet'      => 'ツイートされた内容がここに入ります。140文字以内などの制約をコントローラで守らせます。',
                 'release'    => '2019-01-31',
                 'status'     => true,

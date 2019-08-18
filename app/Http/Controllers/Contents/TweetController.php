@@ -25,7 +25,7 @@ class TweetController extends Controller
 
         // firstOrNew() : 予約情報を取得できなければ作成する
         $tweet = TweetBooking::firstOrNew(
-            ['user_id' => $user->id, 'account_id' => $account->account_id, 'status' => 0]
+            ['user_id' => $user->id, 'twitter_id' => $account->twitter_id, 'status' => 0]
         );
         
         return view('tweet.index', compact('id', 'account', 'tweet'));
@@ -45,7 +45,7 @@ class TweetController extends Controller
         
         // updateOrCreate() : 予約情報に一致するモデルがなければ作成する
         TweetBooking::updateOrCreate(
-            ['user_id' => $user->id, 'account_id' => $account->account_id, 'status' => 0],
+            ['user_id' => $user->id, 'twitter_id' => $account->twitter_id, 'status' => 0],
             ['tweet' => $request->tweet, 'release' => $request->release]
         );
 

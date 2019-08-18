@@ -14,8 +14,8 @@
         <div class="p-account__items">
             @foreach($accountList as $account)
             <a href="{{ route('account.user', $account->id) }}" class="p-account__item c-panel">
-                <img src="/icon.jpg" alt="{{ $account->account_id }}" class="c-panel__thumb">
-                <span class="c-panel__name">&#x40;{{ $account->account_id }}</span>
+                <img src="/icon.jpg" alt="{{ $account->twitter_id }}" class="c-panel__thumb">
+                <span class="c-panel__name">&#x40;{{ $account->twitter_id }}</span>
             </a>
 
             {{-- 10個未満であればアカウント追加ボタンを表示 --}}

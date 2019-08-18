@@ -13,7 +13,7 @@
 
         <div class="c-settings__field">
             <h3 class="c-settings__title c-settings__account">ご利用アカウント</h3>
-            <p class="c-settings__text">&#x40;{{ $account->account_id }}</p>
+            <p class="c-settings__text">&#x40;{{ $account->twitter_id }}</p>
         </div>
 
         <div class="c-settings__field">

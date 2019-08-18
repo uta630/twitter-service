@@ -16,7 +16,10 @@ class CreateAccountTable extends Migration
         Schema::create('account', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
-            $table->string('account_id');
+            $table->string('twitter_id');
+            $table->string('twitter_user_id');
+            $table->string('oauth_token');
+            $table->string('oauth_token_secret');
             $table->timestamps();
             $table->softDeletes();
         });
