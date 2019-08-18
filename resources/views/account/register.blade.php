@@ -9,6 +9,9 @@
             <div class="c-form__field">
                 <p><a href="/auth/twitter" class="c-btn c-btn--blue">ログイン</a></p>
             </div>
+            <div class="c-form__field">
+                <p><a href="/auth/twitter/logout" class="c-btn c-btn--red">ログアウト</a></p>
+            </div>
         </div>
     </div>
 </div>

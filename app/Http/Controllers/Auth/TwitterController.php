@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Socialite;
 
 class TwitterController extends Controller
@@ -33,11 +34,11 @@ class TwitterController extends Controller
     }
 
     // ログアウト
-    public function logout(Request $request)
+    public function logout()
     {
         // 各自ログアウト処理
         // 例
-        // Auth::logout();
-        return redirect('/');
+        Auth::logout();
+        return redirect('/account');
     }
 }
