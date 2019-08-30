@@ -7182,6 +7182,7 @@ button {
 }
 
 .c-panel {
+  overflow: hidden;
   background: #fff;
   padding: 3%;
   text-align: center;
@@ -7218,6 +7219,9 @@ button {
 }
 
 .c-panel__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   display: block;
   margin-top: 10%;
   line-height: 1.4;

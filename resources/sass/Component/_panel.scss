@@ -1,4 +1,6 @@
 .c-panel {
+    overflow: hidden;
+
     background: $white;
 
     padding: 3%;
@@ -43,6 +45,8 @@
     }
 
     &__name {
+        @include text-ellipsis;
+
         display: block;
 
         margin-top: 10%;
