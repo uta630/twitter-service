@@ -85,6 +85,10 @@
     &__invalid-feedback {
         color: $red;
         font-size: 12px;
+        
+        &:hover {
+            color: $dark-red;
+        }
     }
 
     &__check {
@@ -159,6 +163,8 @@
         position: relative;
 
         margin: 4px;
+
+        cursor: pointer;
 
         &::before {
             content: '';
