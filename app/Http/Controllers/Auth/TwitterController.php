@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Account;
 
+require_once '../vendor/autoload.php'; // TwitterOAuthライブラリを読み込み
+use Abraham\TwitterOAuth\TwitterOAuth; // TwitterOAuthクラスをインポート
+
 class TwitterController extends Controller
 {
     public function __construct()
@@ -266,5 +269,68 @@ class TwitterController extends Controller
         curl_setopt( $curl, CURLOPT_TIMEOUT , 5 );	// タイムアウトの秒数
 
         return $curl;
+    }
+
+    /* 
+     * Twitter APIを利用するための認証
+     */
+    public function TwitterOAuth($AccessToken, $AccessTokenSecret)
+    {
+        // TwitterOAuthクラスのインスタンスを作成
+        return new TwitterOAuth(
+            $this->api_key,    // Consumer Keyをセット
+            $this->api_secret, // Consumer Secretをセット
+            $AccessToken,      // Access Tokenをセット
+            $AccessTokenSecret // Access Token Secretをセット
+        );
+    }
+
+    /* 
+     * フォロー
+     */
+    public function executeFollow()
+    {
+        // 
+    }
+
+    /* 
+     * アンフォロー
+     */
+    public function executeUnFollow()
+    {
+        // 
+    }
+
+    /* 
+     * いいね
+     */
+    public function executeFavorite()
+    {
+        // 
+    }
+
+    /* 
+     * ツイート
+     */
+    public function executeTweet($id)
+    {
+        // 利用するツイッターアカウント取得
+        $twitter = Account::find($id);
+        // トークン
+        $AccessToken = $twitter->oauth_token;
+        $AccessTokenSecret = $twitter->oauth_token_secret;
+        // Twitter認証
+        $connect = $this->TwitterOAuth($AccessToken, $AccessTokenSecret);
+
+        // ツイート実行
+        $tweet = '【テスト】Twitter API ツイート';
+        $result = $connect->post(
+            'statuses/update', // ツイートのエンドポイント
+            array( 'status' => $tweet )
+        );
+
+        session()->flash('status', 'ツイートを実行しました。');
+
+        return redirect()->route('account.user', $id);
     }
 }

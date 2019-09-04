@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="l-container">
-    @if (session('status'))
-        <div class="u-alert u-alert--success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
-
     <div class="l-primary">
         <h1 class="l-primary__title">&#x40;{{ $account->twitter_id }}</h1>
+
+        @if (session('status'))
+            <div class="u-alert u-alert--success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
 
         <div class="l-primary__contents">
             <h2 class="l-primary__heading fas fa-user-plus">自動フォロー</h2>
@@ -48,10 +48,11 @@
                 <p class="l-primary__desc">{{ $tweet->release }}</p>
             </div>
 
-            <div class="l-primary__bottom">
+            <form action="{{ route('tweet.executeTweet', $id) }}" method="post" class="l-primary__bottom">
+                @csrf
                 <a href="{{ route('tweet.index', $id) }}" class="c-btn c-btn--green">編集</a>
-                <a href="{{ route('tweet.index', $id) }}" class="c-btn c-btn--blue">実行</a>
-            </div>
+                <input type="submit" value="実行" class="c-btn c-btn--blue">
+            </form>
         </div>
 
         <div class="l-primary__bottom">

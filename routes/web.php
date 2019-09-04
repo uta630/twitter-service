@@ -50,4 +50,5 @@ Route::get('/account/favorite/delete/{id}', 'Contents\FavoriteController@keyword
 // Tweet
 Route::get('/account/{id}/tweet', 'Contents\TweetController@index')->where('id', '[0-9]+')->name('tweet.index');
 Route::post('/account/{id}/tweet/reservation', 'Contents\TweetController@reservation')->where('id', '[0-9]+')->name('tweet.reservation');
-    
+
+Route::post('/account/{id}/tweet/executeTweet', 'Auth\TwitterController@executeTweet')->where('id', '[0-9]+')->name('tweet.executeTweet');
