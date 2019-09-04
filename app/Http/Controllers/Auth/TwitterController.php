@@ -312,7 +312,18 @@ class TwitterController extends Controller
      */
     public function executeFavorite()
     {
-        // 
+        // Twitter認証
+        $connect = $this->TwitterOAuth($id);
+
+        // いいね実行
+        $id = 'xxxxxxxx'; // いいねするツイートのID
+        $result = $connect->post(
+            'favorites/create', // エンドポイント
+            array( 'id' => $id )
+        );
+
+        session()->flash('status', 'いいねを実行しました。');
+        return redirect()->route('account.user', $id);
     }
 
     /* 
@@ -324,14 +335,13 @@ class TwitterController extends Controller
         $connect = $this->TwitterOAuth($id);
 
         // ツイート実行
-        $tweet = 'テスト：'.time();
+        $tweet = 'テスト：'.time(); // ツイート文言
         $result = $connect->post(
-            'statuses/update', // ツイートのエンドポイント
+            'statuses/update', // エンドポイント
             array( 'status' => $tweet )
         );
 
         session()->flash('status', 'ツイートを実行しました。');
-
         return redirect()->route('account.user', $id);
     }
 }
