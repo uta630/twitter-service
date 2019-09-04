@@ -274,8 +274,14 @@ class TwitterController extends Controller
     /* 
      * Twitter APIを利用するための認証
      */
-    public function TwitterOAuth($AccessToken, $AccessTokenSecret)
+    public function TwitterOAuth($id)
     {
+        // 利用するツイッターアカウント取得
+        $twitter = Account::find($id);
+        // 連携したアカウントのIDからDBのトークンを取得
+        $AccessToken = $twitter->oauth_token;
+        $AccessTokenSecret = $twitter->oauth_token_secret;
+
         // TwitterOAuthクラスのインスタンスを作成
         return new TwitterOAuth(
             $this->api_key,    // Consumer Keyをセット
@@ -314,16 +320,11 @@ class TwitterController extends Controller
      */
     public function executeTweet($id)
     {
-        // 利用するツイッターアカウント取得
-        $twitter = Account::find($id);
-        // トークン
-        $AccessToken = $twitter->oauth_token;
-        $AccessTokenSecret = $twitter->oauth_token_secret;
         // Twitter認証
-        $connect = $this->TwitterOAuth($AccessToken, $AccessTokenSecret);
+        $connect = $this->TwitterOAuth($id);
 
         // ツイート実行
-        $tweet = '【テスト】Twitter API ツイート';
+        $tweet = 'テスト：'.time();
         $result = $connect->post(
             'statuses/update', // ツイートのエンドポイント
             array( 'status' => $tweet )
