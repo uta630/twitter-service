@@ -337,6 +337,15 @@ class TwitterController extends Controller
         // Twitter認証
         $connect = $this->TwitterOAuth($id);
 
+        // キーワードによるツイート検索
+        $tweet = $connect->get(
+            'search/tweets', // エンドポイント
+            array(
+                'q' => '夜景 OR きれい', // love OR hate = OR, love hate = AND
+                'count' => 100 // 取得件数 : def = 15,  max = 100
+            )
+        );
+
         // いいね実行
         $tweetID = 'xxxxxxxx'; // いいねするツイートのID
         $result = $connect->post(
