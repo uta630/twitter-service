@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Account;
 
+require_once '../vendor/autoload.php'; // TwitterOAuthライブラリを読み込み
+use Abraham\TwitterOAuth\TwitterOAuth; // TwitterOAuthクラスをインポート
+
 class TwitterController extends Controller
 {
     public function __construct()
@@ -266,5 +269,110 @@ class TwitterController extends Controller
         curl_setopt( $curl, CURLOPT_TIMEOUT , 5 );	// タイムアウトの秒数
 
         return $curl;
+    }
+
+    /* 
+     * Twitter APIを利用するための認証
+     */
+    public function TwitterOAuth($id)
+    {
+        // 利用するツイッターアカウント取得
+        $twitter = Account::find($id);
+        // 連携したアカウントのIDからDBのトークンを取得
+        $AccessToken = $twitter->oauth_token;
+        $AccessTokenSecret = $twitter->oauth_token_secret;
+
+        // TwitterOAuthクラスのインスタンスを作成
+        return new TwitterOAuth(
+            $this->api_key,    // Consumer Keyをセット
+            $this->api_secret, // Consumer Secretをセット
+            $AccessToken,      // Access Tokenをセット
+            $AccessTokenSecret // Access Token Secretをセット
+        );
+    }
+
+    /* 
+     * フォロー
+     */
+    public function executeFollow($id)
+    {
+        // Twitter認証
+        $connect = $this->TwitterOAuth($id);
+
+        // フォロー実行
+        $screen_name = 'xxxxxxxx'; // フォローするユーザーID
+        $result = $connect->post(
+            'friendships/create', // エンドポイント
+            array( 'screen_name' => $screen_name )
+        );
+
+        session()->flash('status', 'フォローを実行しました。');
+        return redirect()->route('account.user', $id);
+    }
+
+    /* 
+     * アンフォロー
+     */
+    public function executeUnFollow($id)
+    {
+        // Twitter認証
+        $connect = $this->TwitterOAuth($id);
+
+        // アンフォロー実行
+        $screen_name = 'xxxxxxxx'; // アンフォローするユーザーID
+        $result = $connect->post(
+            'friendships/destroy', // エンドポイント
+            array( 'screen_name' => $screen_name )
+        );
+
+        session()->flash('status', 'アンフォローを実行しました。');
+        return redirect()->route('account.user', $id);
+    }
+
+    /* 
+     * いいね
+     */
+    public function executeFavorite($id)
+    {
+        // Twitter認証
+        $connect = $this->TwitterOAuth($id);
+
+        // キーワードによるツイート検索
+        $tweet = $connect->get(
+            'search/tweets', // エンドポイント
+            array(
+                'q' => '夜景 OR きれい', // love OR hate = OR, love hate = AND
+                'count' => 100 // 取得件数 : def = 15,  max = 100
+            )
+        );
+
+        // いいね実行
+        $tweetID = 'xxxxxxxx'; // いいねするツイートのID
+        $result = $connect->post(
+            'favorites/create', // エンドポイント
+            array( 'id' => $tweetID )
+        );
+
+        session()->flash('status', 'いいねを実行しました。');
+        return redirect()->route('account.user', $id);
+    }
+
+    /* 
+     * ツイート
+     */
+    public function executeTweet($id)
+    {
+        // Twitter認証
+        $connect = $this->TwitterOAuth($id);
+
+        // ツイート実行
+        $tweet = 'テスト：'.time(); // ツイート文言
+        $result = $connect->post(
+            'statuses/update', // エンドポイント
+            array( 'status' => $tweet )
+        );
+
+        session()->flash('status', 'ツイートを実行しました。');
+        return redirect()->route('account.user', $id);
     }
 }

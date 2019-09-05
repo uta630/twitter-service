@@ -6927,6 +6927,10 @@ button {
   font-size: 12px;
 }
 
+.c-form__invalid-feedback:hover {
+  color: #c51f1a;
+}
+
 .c-form__check-input {
   display: none;
 }
@@ -6985,6 +6989,7 @@ button {
 .c-form__checkbox {
   position: relative;
   margin: 4px;
+  cursor: pointer;
 }
 
 .c-form__checkbox::before {
@@ -7182,6 +7187,7 @@ button {
 }
 
 .c-panel {
+  overflow: hidden;
   background: #fff;
   padding: 3%;
   text-align: center;
@@ -7218,6 +7224,9 @@ button {
 }
 
 .c-panel__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   display: block;
   margin-top: 10%;
   line-height: 1.4;
