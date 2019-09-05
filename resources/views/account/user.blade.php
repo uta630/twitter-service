@@ -18,10 +18,11 @@
                 <p>ここに設定内容が表示されます。</p>
             </div>
 
-            <div class="l-primary__bottom">
+            <form action="{{ route('follow.executeFollow', $id) }}" method="post" class="l-primary__bottom">
+                @csrf
                 <a href="{{ route('follow.index', $id) }}" class="c-btn c-btn--green">編集</a>
-                <a href="{{ route('follow.index', $id) }}" class="c-btn c-btn--blue">実行</a>
-            </div>
+                <input type="submit" value="実行" class="c-btn c-btn--blue">
+            </form>
         </div>
         
         <div class="l-primary__contents">

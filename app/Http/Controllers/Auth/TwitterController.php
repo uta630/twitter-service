@@ -294,32 +294,54 @@ class TwitterController extends Controller
     /* 
      * フォロー
      */
-    public function executeFollow()
+    public function executeFollow($id)
     {
-        // 
+        // Twitter認証
+        $connect = $this->TwitterOAuth($id);
+
+        // フォロー実行
+        $screen_name = 'xxxxxxxx'; // フォローするユーザーID
+        $result = $connect->post(
+            'friendships/create', // エンドポイント
+            array( 'screen_name' => $screen_name )
+        );
+
+        session()->flash('status', 'フォローを実行しました。');
+        return redirect()->route('account.user', $id);
     }
 
     /* 
      * アンフォロー
      */
-    public function executeUnFollow()
+    public function executeUnFollow($id)
     {
-        // 
+        // Twitter認証
+        $connect = $this->TwitterOAuth($id);
+
+        // アンフォロー実行
+        $screen_name = 'xxxxxxxx'; // アンフォローするユーザーID
+        $result = $connect->post(
+            'friendships/destroy', // エンドポイント
+            array( 'screen_name' => $screen_name )
+        );
+
+        session()->flash('status', 'アンフォローを実行しました。');
+        return redirect()->route('account.user', $id);
     }
 
     /* 
      * いいね
      */
-    public function executeFavorite()
+    public function executeFavorite($id)
     {
         // Twitter認証
         $connect = $this->TwitterOAuth($id);
 
         // いいね実行
-        $id = 'xxxxxxxx'; // いいねするツイートのID
+        $tweetID = 'xxxxxxxx'; // いいねするツイートのID
         $result = $connect->post(
             'favorites/create', // エンドポイント
-            array( 'id' => $id )
+            array( 'id' => $tweetID )
         );
 
         session()->flash('status', 'いいねを実行しました。');
